@@ -1,49 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Neysha Pagán — Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { margin:0; font-family: 'Courier New', monospace; background:#fff; color:#222; }
-    a { color:#0066cc; text-decoration:none; }
-    header { display:flex; align-items:center; padding:2rem; background:#f8f8f8; }
-    header img { width:140px; height:140px; border-radius:50%; margin-right:2rem; object-fit:cover; }
-    header h1 { margin:0; font-size:2.5rem; }
-    header p { margin:0.5rem 0; line-height:1.4; max-width:600px; }
-    .contact a { margin-right:1rem; font-size:0.9rem; }
-    .button { display:inline-block; margin-top:1rem; padding:0.5rem 1rem; border:1px solid #0066cc; border-radius:0.25rem; }
-    .skills, .projects { padding:2rem; }
-    .skills h2, .projects h2 { border-bottom:2px solid #ccc; padding-bottom:0.5rem; }
-    .skill-tags { display:flex; flex-wrap:wrap; margin-top:1rem; }
+    /* Azure-esque font stack */
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Segoe UI Semilight", "Segoe UI Emoji", "Segoe UI Symbol", Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff;
+      color: #222;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      padding: 2rem;
+      background: #f8f8f8;
+    }
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin-right: 2rem;
+      object-fit: cover;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin: 0.5rem 0;
+      line-height: 1.4;
+      max-width: 600px;
+    }
+    .contact a {
+      margin-right: 1rem;
+      font-size: 0.9rem;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid #0066cc;
+      border-radius: 0.25rem;
+    }
+    .skills, .projects {
+      padding: 2rem;
+    }
+    .skills h2, .projects h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.5rem;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
     .skill-tags span {
-      background:#eee; padding:0.5rem 1rem; border-radius:0.25rem;
-      margin:0.25rem; font-size:0.9rem;
+      background: #eee;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      margin: 0.25rem;
+      font-size: 0.9rem;
     }
     .projects-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fill, minmax(220px,1fr));
-      gap:1.5rem; margin-top:1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
     }
     .project-card {
-      border:1px solid #ddd; border-radius:0.25rem; overflow:hidden;
-      text-align:center; background:#fafafa; transition:transform .2s;
+      border: 1px solid #ddd;
+      border-radius: 0.25rem;
+      overflow: hidden;
+      text-align: center;
+      background: #fafafa;
+      transition: transform .2s;
     }
-    .project-card:hover { transform:translateY(-4px); }
-    .project-card img { width:100%; height:140px; object-fit:cover; }
-    .project-card h3 { margin:0.7rem 0; font-size:1.1rem; }
-    .project-card p { margin:0 1rem 1rem; font-size:0.9rem; }
+    .project-card:hover {
+      transform: translateY(-4px);
+    }
+    .project-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+    .project-card h3 {
+      margin: 0.7rem 0;
+      font-size: 1.1rem;
+    }
+    .project-card p {
+      margin: 0 1rem 1rem;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="assets/profile.jpg" alt="Neysha Pagán">
+    <!-- Asegúrate de haber copiado 1523588820522.jpeg dentro de assets/ -->
+    <img src="assets/1523588820522.jpeg" alt="Neysha Pagán">
     <div>
       <h1>Neysha Pagán</h1>
-      <p>Data Architect & Scientist with 13+ years’ experience in lakehouse design, cloud migrations, and AI/ML at scale. I build robust pipelines in Azure Databricks, SQL Server, and big-data ecosystems to deliver actionable insights and predictive solutions.</p>
+      <p>Data Architect & Scientist con más de 13 años’ de experiencia en lakehouse design, migraciones en la nube y AI/ML a escala. Construyo pipelines robustos en Azure Databricks, SQL Server y ecosistemas big-data para entregar insights accionables y soluciones predictivas.</p>
       <div class="contact">
-        <a class="button" href="assets/Neysha_Pagan_Resume2025.pdf" target="_blank">📄 Résumé</a>
+        <!-- Copia tu .docx al directorio assets/ para que GitHub Pages lo sirva -->
+        <a class="button" href="assets/Neysha_Pagan_Resume2025.docx" target="_blank">📄 Résumé</a>
         <a href="mailto:npagan247@gmail.com">✉️ Email</a>
         <a href="https://linkedin.com/in/neysha-pagan-a7346a102" target="_blank">🔗 LinkedIn</a>
         <a href="https://github.com/neypagan" target="_blank">🐙 GitHub</a>
@@ -68,25 +135,25 @@
       <div class="project-card">
         <img src="assets/deep-learning.jpg" alt="Deep Learning">
         <h3>Deep Learning CNN</h3>
-        <p>Automated product classification for Artiszen Crafts using ResNet18 & PyTorch (84.7% accuracy).</p>
+        <p>Clasificación automatizada de productos para Artiszen Crafts con ResNet18 & PyTorch (84.7% accuracy).</p>
       </div>
 
       <div class="project-card">
         <img src="assets/nlp-chatbot.jpg" alt="NLP & Chatbot">
         <h3>NLP & Chatbot</h3>
-        <p>Sentiment-analysis pipeline & Shopify chatbot (Dialogflow + LangChain) for automated customer feedback.</p>
+        <p>Pipelines de sentimiento & chatbot para Shopify (Dialogflow + LangChain).</p>
       </div>
 
       <div class="project-card">
         <img src="assets/predictive-maintenance.jpg" alt="Predictive Maintenance">
         <h3>Predictive Maintenance</h3>
-        <p>Machine-failure prediction & anomaly detection (SMOTE + RandomForest, ROC-AUC 0.99) on industrial sensor data.</p>
+        <p>Predicción de fallos & detección de anomalías (SMOTE + RandomForest, ROC-AUC 0.99).</p>
       </div>
 
       <div class="project-card">
         <img src="assets/big-data-management.jpg" alt="Big Data Management">
         <h3>Advanced Big Data Mgmt</h3>
-        <p>“PaganWalker” end-to-end stack: MinIO, PostgreSQL, MongoDB, Cassandra, Spark & Elasticsearch.</p>
+        <p>“PaganWalker” stack completo: MinIO, PostgreSQL, MongoDB, Cassandra, Spark & Elasticsearch.</p>
       </div>
 
     </div>
