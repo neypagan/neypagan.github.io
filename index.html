@@ -18,19 +18,7 @@
       text-decoration: none;
     }
 
-    /* === Background Video === */
-    #bgVideo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 1;
-    }
-
-    /* === Header (transparent) === */
+    /* === Header & Video Container === */
     header {
       position: relative;
       overflow: hidden;
@@ -38,8 +26,18 @@
       text-align: center;
       background: transparent;
     }
-    header video + img {
-      margin-bottom: 1rem;
+    header video#headerVideo {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.3;  /* adjust transparency as desired */
+    }
+    .header-content {
+      position: relative;
+      z-index: 1;
     }
     header img {
       width: 140px;
@@ -48,6 +46,7 @@
       object-fit: cover;
       border: 3px solid white;
       box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      margin-bottom: 1rem;
     }
     header h1 {
       margin: 0.5rem 0;
@@ -64,6 +63,8 @@
     /* === Contact Links === */
     .contact {
       margin-top: 1.5rem;
+      position: relative;
+      z-index: 1;
     }
     .contact a.button {
       display: inline-block;
@@ -71,8 +72,8 @@
       padding: 0.5rem 1.2rem;
       border: 1px solid #0066cc;
       border-radius: 0.25rem;
-      font-size: 0.95rem;
       background: #fff;
+      font-size: 0.95rem;
       transition: background 0.3s, color 0.3s;
     }
     .contact a.button:hover {
@@ -93,6 +94,7 @@
     /* === Skills & Projects === */
     .skills, .projects {
       padding: 2rem 1rem;
+      background: #f4f4f8;
     }
     .skills h2, .projects h2 {
       border-bottom: 2px solid #ccc;
@@ -145,45 +147,46 @@
     /* === Responsive === */
     @media (max-width: 600px) {
       header h1 { font-size: 2rem; }
-      header p { font-size: 1rem; }
+      header p   { font-size: 1rem; }
       .contact .social { gap: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Background Video -->
-  <video autoplay muted loop id="bgVideo" playsinline>
-    <source src="assets/images/background-clean.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-
-  <!-- Header Section -->
   <header>
-    <img src="assets/photo.jpeg" alt="Neysha Pagán" />
-    <h1>Neysha Pagán</h1>
-    <p>
-      I’m a data-driven solutions architect with 14+ years of experience modernizing databases and building analytics pipelines.
-      I bridge SQL Server, Oracle, PostgreSQL, NoSQL (MongoDB, Cassandra, Elasticsearch) and Azure cloud to deliver scalable
-      ETL workflows, AI/ML insights, and data-powered decisions.
-    </p>
-    <div class="contact">
-      <a class="button" href="assets/Neysha_Pagan_Resume2025.pdf" target="_blank" rel="noopener noreferrer">
-        📄 Résumé
-      </a>
-      <div class="social">
-        <a href="#" onclick="sendEmail(event)">✉️ Email</a>
-        <a href="https://www.linkedin.com/in/neysha-pagán-a7346a102/" target="_blank" rel="noopener noreferrer">
-          🔗 LinkedIn
+    <!-- Looping background video only in header -->
+    <video autoplay muted loop id="headerVideo" playsinline>
+      <source src="assets/images/background.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="header-content">
+      <img src="assets/photo.jpeg" alt="Neysha Pagán" />
+      <h1>Neysha Pagán</h1>
+      <p>
+        I’m a data-driven solutions architect with 14+ years of experience modernizing databases
+        and building analytics pipelines. I bridge SQL Server, Oracle, PostgreSQL, NoSQL
+        (MongoDB, Cassandra, Elasticsearch) and Azure cloud to deliver scalable ETL workflows,
+        AI/ML insights, and data-powered decisions.
+      </p>
+      <div class="contact">
+        <a class="button" href="assets/Neysha_Pagan_Resume2025.pdf" target="_blank" rel="noopener noreferrer">
+          📄 Résumé
         </a>
-        <a href="https://github.com/neypagan" target="_blank" rel="noopener noreferrer">
-          🐙 GitHub
-        </a>
+        <div class="social">
+          <a href="#" onclick="sendEmail(event)">✉️ Email</a>
+          <a href="https://www.linkedin.com/in/neysha-pagán-a7346a102/" target="_blank" rel="noopener noreferrer">
+            🔗 LinkedIn
+          </a>
+          <a href="https://github.com/neypagan" target="_blank" rel="noopener noreferrer">
+            🐙 GitHub
+          </a>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Skills Section -->
   <section class="skills">
     <h2>Skills</h2>
     <div class="skill-tags">
@@ -225,7 +228,6 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
   <section class="projects">
     <h2>Projects</h2>
     <div class="projects-grid">
@@ -238,7 +240,7 @@
       </div>
       <div class="project-card">
         <img src="assets/nlp-chatbot.jpg" alt="NLP & Chatbot" />
-        <h3>NLP &amp; Chatbot</h3>
+        <h3>NLP & Chatbot</h3>
         <p>
           End-to-end sentiment analysis &amp; Shopify FAQ bot powered by Dialogflow &amp; LangChain.
         </p>
@@ -260,7 +262,6 @@
     </div>
   </section>
 
-  <!-- JS: Email copy + mailto fallback -->
   <script>
     function sendEmail(event) {
       event.preventDefault();
