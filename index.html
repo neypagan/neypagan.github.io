@@ -168,6 +168,20 @@
     .project-card:hover .card-overlay {
       opacity: 1;
     }
+    .view-btn-fixed {
+      display: inline-block;
+      margin: 0.5rem 1rem 1rem;
+      padding: 0.6rem 1.2rem;
+      background: #66b3ff;
+      color: #fff;
+      border-radius: 0.25rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background .3s;
+    }
+    .view-btn-fixed:hover {
+      background: #99ccff;
+    }
     .project-card .view-btn {
       padding: 0.6rem 1.2rem;
       background: #66b3ff;
@@ -279,6 +293,9 @@
           Automated product classification for Artiszën Crafts using ResNet18 &amp; PyTorch
           (84.7% accuracy).
         </p>
+        <a href="deep-learning.html" class="view-btn view-btn-fixed" target="_blank" rel="noopener noreferrer">
+          View Project
+        </a>
         <div class="card-overlay">
           <a href="deep-learning.html" class="view-btn">View Project</a>
         </div>
