@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,24 +19,23 @@
       text-decoration: none;
     }
 
-    /* === Background Video === */
-    #bgVideo {
-      position: fixed;
+    /* === Header & Video Background === */
+    header {
+      position: relative;
+      overflow: hidden;
+      padding: 4rem 1rem 2rem;
+      text-align: center;
+      background: rgba(255,255,255,0.85);
+    }
+    header video {
+      position: absolute;
       top: 0;
       left: 0;
-      min-width: 100%;
-      min-height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       z-index: -1;
       opacity: 0.3;
-    }
-
-    /* === Header === */
-    header {
-      padding: 4rem 1rem 2rem;
-      text-align: center;
-      position: relative;
-      background: rgba(255,255,255,0.85);
     }
     header img {
       width: 140px;
@@ -44,10 +44,11 @@
       object-fit: cover;
       border: 3px solid white;
       box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      margin-bottom: 1rem;
     }
     header h1 {
       font-size: 2.5rem;
-      margin: 1rem 0 0.5rem;
+      margin: 0.5rem 0;
     }
     header p {
       max-width: 700px;
@@ -94,13 +95,11 @@
       border-bottom: 2px solid #ccc;
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
-      /* left-aligned by default */
     }
     .skill-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      /* left-aligned by default */
     }
     .skill-tags span {
       background: #eee;
@@ -110,10 +109,9 @@
     }
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+      grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
       gap: 1.5rem;
       margin-top: 1rem;
-      /* left-aligned by default */
     }
     .project-card {
       border: 1px solid #ddd;
@@ -127,9 +125,9 @@
       transform: translateY(-4px);
     }
     .project-card img {
-      display: block;
       width: 100%;
       height: auto;
+      display: block;
     }
     .project-card h3 {
       margin: 0.7rem 0;
@@ -151,14 +149,13 @@
 </head>
 <body>
 
-  <!-- Background Video -->
-  <video autoplay muted loop id="bgVideo">
-    <source src="assets/images/backgroundtrimmed.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-
-  <!-- Header Section -->
+  <!-- Header Section with Video Background -->
   <header>
+    <video autoplay muted loop>
+      <source src="assets/images/backgroundtrimmed.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
     <img src="assets/photo.jpeg" alt="Neysha Pagán" />
     <h1>Neysha Pagán</h1>
     <p>
@@ -273,3 +270,4 @@
   </script>
 </body>
 </html>
+```
