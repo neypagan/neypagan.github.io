@@ -150,8 +150,35 @@
       margin: 0 1rem 1rem;
       font-size: 0.9rem;
       line-height: 1.3;
+      flex: 1;
     }
-
+     /* === Hover Overlay Styles === */
+    .project-card .card-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .3s ease;
+      z-index: 1;
+    }
+    .project-card:hover .card-overlay {
+      opacity: 1;
+    }
+    .project-card .view-btn {
+      padding: 0.6rem 1.2rem;
+      background: #66b3ff;
+      color: #fff;
+      border-radius: 0.25rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .project-card .view-btn:hover {
+      background: #99ccff;
+    }
     /* === Responsive === */
     @media (max-width: 600px) {
       header h1 { font-size: 2rem; }
@@ -243,20 +270,33 @@
   <section class="projects">
     <h2>Projects</h2>
     <div class="projects-grid">
+
+      <!-- Deep Learning CNN -->
       <div class="project-card">
         <img src="assets/images/deep-learning.png" alt="Deep Learning CNN" />
         <h3>Deep Learning CNN</h3>
         <p>
-          Automated product classification for Artiszën Crafts using ResNet18 &amp; PyTorch (84.7% accuracy).
+          Automated product classification for Artiszën Crafts using ResNet18 &amp; PyTorch
+          (84.7% accuracy).
         </p>
+        <div class="card-overlay">
+          <a href="deep-learning.html" class="view-btn">View Project</a>
+        </div>
       </div>
+
+      <!-- NLP & Chatbot -->
       <div class="project-card">
         <img src="assets/nlp-chatbot.jpg" alt="NLP & Chatbot" />
         <h3>NLP & Chatbot</h3>
         <p>
           End-to-end sentiment analysis &amp; Shopify FAQ bot powered by Dialogflow &amp; LangChain.
         </p>
+        <div class="card-overlay">
+          <a href="nlp-chatbot.html" class="view-btn">View Project</a>
+        </div>
       </div>
+
+      <!-- Predictive Maintenance -->
       <div class="project-card">
         <img src="assets/images/predictive-maintenance.png" alt="Predictive Maintenance" />
         <h3>Predictive Maintenance</h3>
@@ -264,6 +304,8 @@
           Machine-failure prediction &amp; anomaly detection with SMOTE &amp; Random Forest (ROC-AUC 0.99).
         </p>
       </div>
+
+      <!-- Advanced Big Data Mgmt -->
       <div class="project-card">
         <img src="assets/images/big-data-management.png" alt="Big Data Management" />
         <h3>Advanced Big Data Mgmt</h3>
