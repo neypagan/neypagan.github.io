@@ -1,111 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Neysha Pagán — Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    /* Subtle off-white page background */
+    /* === Global Styles === */
     body {
       margin: 0;
-      background: #f7f7f7;
-      font-family:
-        "Segoe UI","Segoe UI Semilight","Segoe UI Emoji","Segoe UI Symbol",
-        Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f8;
       color: #222;
+      overflow-x: hidden;
     }
     a {
       color: #0066cc;
       text-decoration: none;
     }
 
-    /* HEADER */
-    header {
-      background: #fff;
-      padding-bottom: 1rem;
-    }
-    .intro-header {
-      display: flex;
-      align-items: center;
-      padding: 2rem;
-    }
-    /* Animated gradient behind the photo */
-    .photo-bg {
-      position: relative;
-      width: 140px; height: 140px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-right: 2rem;
-      background: linear-gradient(45deg, #f06, #4a90e2, #7ed321);
-      background-size: 600% 600%;
-      animation: gradientShift 8s ease infinite;
-    }
-    @keyframes gradientShift {
-      0%   { background-position:   0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position:   0% 50%; }
-    }
-    .photo-bg img {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+    /* === Background Video === */
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
       object-fit: cover;
-    }
-    .intro-header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    .intro-paragraph {
-      padding: 0 2rem;
-      margin: 0;
-      line-height: 1.6;
-      max-width: 600px;
+      z-index: -1;
+      opacity: 0.3;
     }
 
-    /* CONTACT */
-    .contact {
-      padding: 1rem 2rem;
-    }
-    .resume-link {
+    /* === Header === */
+    header {
+      padding: 4rem 1rem 2rem;
       text-align: center;
-      margin-bottom: 1rem;
+      position: relative;
+      background: rgba(255,255,255,0.85);
     }
-    .resume-link .button {
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 1rem 0 0.5rem;
+    }
+    header p {
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+      font-size: 1.1rem;
+      padding: 0 1rem;
+    }
+
+    /* === Contact Links === */
+    .contact {
+      margin-top: 1.5rem;
+    }
+    .contact a.button {
       display: inline-block;
-      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      padding: 0.5rem 1.2rem;
       border: 1px solid #0066cc;
       border-radius: 0.25rem;
+      font-size: 0.95rem;
       background: #fff;
-      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
     }
-    .social-links {
+    .contact a.button:hover {
+      background: #0066cc;
+      color: #fff;
+    }
+    .contact .social {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
     }
-    .social-links a {
-      font-size: 0.9rem;
+    .contact .social a {
+      font-size: 0.95rem;
     }
 
-    /* SKILLS & PROJECTS */
+    /* === Skills & Projects === */
     .skills, .projects {
-      padding: 2rem;
+      padding: 2rem 1rem;
     }
     .skills h2, .projects h2 {
       border-bottom: 2px solid #ccc;
       padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .skill-tags {
       display: flex;
       flex-wrap: wrap;
-      margin-top: 1rem;
+      justify-content: center;
+      gap: 0.5rem;
     }
     .skill-tags span {
       background: #eee;
       padding: 0.5rem 1rem;
       border-radius: 0.25rem;
-      margin: 0.25rem;
       font-size: 0.9rem;
     }
     .projects-grid {
@@ -113,6 +115,9 @@
       grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
       gap: 1.5rem;
       margin-top: 1rem;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .project-card {
       border: 1px solid #ddd;
@@ -140,64 +145,48 @@
       line-height: 1.3;
     }
 
-    /* RESPONSIVE (mobile) */
-    @media (max-width: 650px) {
-      .intro-header {
-        display: block;
-        text-align: center;
-      }
-      .intro-header h1 {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-      }
-      .intro-paragraph {
-        padding: 0 1rem;
-      }
-      .contact {
-        padding: 1rem;
-      }
+    /* === Responsive === */
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      header p { font-size: 1rem; }
+      .contact .social { gap: 1rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Background Video -->
+  <video autoplay muted loop id="bgVideo">
+    <source src="assets/images/background.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Header Section -->
   <header>
-    <div class="intro-header">
-      <div class="photo-bg">
-        <img src="assets/photo.jpeg" alt="Neysha Pagán">
-      </div>
-      <h1>Neysha Pagán</h1>
-    </div>
-
-    <p class="intro-paragraph">
+    <img src="assets/photo.jpeg" alt="Neysha Pagán" />
+    <h1>Neysha Pagán</h1>
+    <p>
       I’m a data-driven solutions architect with 14+ years of experience modernizing databases and building analytics pipelines.
-      I bridge SQL Server, Oracle, PostgreSQL, NoSQL (MongoDB, Cassandra, Elasticsearch) and Azure cloud to deliver
-      scalable ETL workflows, AI/ML insights, and data-powered decisions.
+      I bridge SQL Server, Oracle, PostgreSQL, NoSQL (MongoDB, Cassandra, Elasticsearch) and Azure cloud to deliver scalable
+      ETL workflows, AI/ML insights, and data-powered decisions.
     </p>
-
     <div class="contact">
-      <div class="resume-link">
-        <a class="button"
-           href="assets/Neysha_Pagan_Resume2025.pdf"
-           target="_blank"
-           rel="noopener noreferrer">
-          📄 Résumé
-        </a>
-      </div>
-      <div class="social-links">
+      <a class="button" href="assets/Neysha_Pagan_Resume2025.pdf" target="_blank" rel="noopener noreferrer">
+        📄 Résumé
+      </a>
+      <div class="social">
         <a href="#" onclick="sendEmail(event)">✉️ Email</a>
-        <a href="https://www.linkedin.com/in/neysha-pagán-a7346a102/"
-           target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/neysha-pag%C3%A1n-a7346a102/" target="_blank" rel="noopener noreferrer">
           🔗 LinkedIn
         </a>
-        <a href="https://github.com/neypagan"
-           target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/neypagan" target="_blank" rel="noopener noreferrer">
           🐙 GitHub
         </a>
       </div>
     </div>
   </header>
 
+  <!-- Skills Section -->
   <section class="skills">
     <h2>Skills</h2>
     <div class="skill-tags">
@@ -239,12 +228,13 @@
     </div>
   </section>
 
+  <!-- Projects Section -->
   <section class="projects">
     <h2>Projects</h2>
     <div class="projects-grid">
 
       <div class="project-card">
-        <img src="assets/images/deep-learning.png" alt="Deep Learning CNN">
+        <img src="assets/images/deep-learning-cnn.png" alt="Deep Learning CNN" />
         <h3>Deep Learning CNN</h3>
         <p>
           Automated product classification for Artiszën Crafts using ResNet18 &amp; PyTorch (84.7% accuracy).
@@ -252,15 +242,15 @@
       </div>
 
       <div class="project-card">
-        <img src="assets/nlp-chatbot.jpg" alt="NLP & Chatbot">
-        <h3>NLP & Chatbot</h3>
+        <img src="assets/nlp-chatbot.jpg" alt="NLP & Chatbot" />
+        <h3>NLP &amp; Chatbot</h3>
         <p>
           End-to-end sentiment analysis &amp; Shopify FAQ bot powered by Dialogflow &amp; LangChain.
         </p>
       </div>
 
       <div class="project-card">
-        <img src="assets/images/predictive-maintenance.png" alt="Predictive Maintenance">
+        <img src="assets/images/predictive-maintenance.png" alt="Predictive Maintenance" />
         <h3>Predictive Maintenance</h3>
         <p>
           Machine-failure prediction &amp; anomaly detection with SMOTE &amp; Random Forest (ROC-AUC 0.99).
@@ -268,7 +258,7 @@
       </div>
 
       <div class="project-card">
-        <img src="assets/images/big-data-management.png" alt="Big Data Management">
+        <img src="assets/images/big-data-management.png" alt="Big Data Management" />
         <h3>Advanced Big Data Mgmt</h3>
         <p>
           End-to-end Big Data stack: MinIO, PostgreSQL, MongoDB, Cassandra, Spark &amp; Elasticsearch.
@@ -278,6 +268,7 @@
     </div>
   </section>
 
+  <!-- JS: Email copy + mailto fallback -->
   <script>
     function sendEmail(event) {
       event.preventDefault();
