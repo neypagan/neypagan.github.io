@@ -18,7 +18,7 @@
       text-decoration: none;
     }
 
-    /* === Header & Video Container === */
+    /* === Header & Video === */
     header {
       position: relative;
       overflow: hidden;
@@ -28,12 +28,13 @@
     }
     header video#headerVideo {
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       z-index: -1;
-      opacity: 0.9;  /* adjust transparency as desired */
+      opacity: 0.9;
     }
     .header-content {
       position: relative;
@@ -51,15 +52,15 @@
     header h1 {
       margin: 0.5rem 0;
       font-size: 2.5rem;
-      color: #ffffff
+      color: #ffffff;
     }
     header p {
       max-width: 700px;
-      margin: 1.5rem auto 1.5rem;
+      margin: 1.5rem auto;
       padding: 0 1rem;
       line-height: 1.6;
       font-size: 1.1rem;
-      color: #ffffff
+      color: #ffffff;
     }
 
     /* === Contact Links === */
@@ -88,22 +89,21 @@
       gap: 1.5rem;
       flex-wrap: wrap;
       margin-top: 0.5rem;
-      color: #abe6ff
     }
     .contact .social a {
       font-size: 0.95rem;
       color: #66b3ff;
     }
     .contact .social a:hover {
-  color: #99ccff;
+      color: #99ccff;
     }
 
-    /* === Skills & Projects === */
-    .skills, .projects {
+    /* === Skills === */
+    .skills {
       padding: 2rem 1rem;
       background: #f4f4f8;
     }
-    .skills h2, .projects h2 {
+    .skills h2 {
       border-bottom: 2px solid #ccc;
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
@@ -119,14 +119,30 @@
       border-radius: 0.25rem;
       font-size: 0.9rem;
     }
+
+    /* === Projects === */
+    .projects {
+      padding: 2rem 1rem;
+      background: #f4f4f8;
+    }
+    .projects h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 1.5rem;
       margin-top: 1rem;
       justify-content: center;
     }
-    .project-card {
+    .project-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .project-link .project-card {
       border: 1px solid #ddd;
       border-radius: 0.25rem;
       overflow: hidden;
@@ -134,8 +150,9 @@
       background: #fafafa;
       transition: transform .2s;
     }
-    .project-card:hover {
+    .project-link .project-card:hover {
       transform: translateY(-4px);
+      cursor: pointer;
     }
     .project-card img {
       width: 100%;
@@ -150,56 +167,16 @@
       margin: 0 1rem 1rem;
       font-size: 0.9rem;
       line-height: 1.3;
-      flex: 1;
     }
-     /* === Hover Overlay Styles === */
-    .project-card .card-overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity .3s ease;
-      z-index: 1;
-    }
-    .project-card:hover .card-overlay {
-      opacity: 1;
-    }
-    .view-btn-fixed {
-      display: inline-block;
-      margin: 0.5rem 1rem 1rem;
-      padding: 0.6rem 1.2rem;
-      background: #66b3ff;
-      color: #fff;
-      border-radius: 0.25rem;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background .3s;
-    }
-    .view-btn-fixed:hover {
-      background: #99ccff;
-    }
-    .project-card .view-btn {
-      padding: 0.6rem 1.2rem;
-      background: #66b3ff;
-      color: #fff;
-      border-radius: 0.25rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .project-card .view-btn:hover {
-      background: #99ccff;
-    }
+
     /* === Responsive === */
     @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
-      header p   { font-size: 1rem; }
-      .contact .social { gap: 1rem; }
-     
-      /* Projects one per row on mobile */
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
       .projects-grid {
         grid-template-columns: 1fr !important;
       }
@@ -209,12 +186,10 @@
 <body>
 
   <header>
-    <!-- Looping background video only in header -->
     <video autoplay muted loop id="headerVideo" playsinline>
       <source src="assets/images/background_trimmed.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-
     <div class="header-content">
       <img src="assets/photo.jpeg" alt="Neysha Pagán" />
       <h1>Neysha Pagán</h1>
@@ -286,50 +261,66 @@
     <div class="projects-grid">
 
       <!-- Deep Learning CNN -->
-      <div class="project-card">
-        <img src="assets/images/deep-learning.png" alt="Deep Learning CNN" />
-        <h3>Deep Learning CNN</h3>
-        <p>
-          Automated product classification for Artiszën Crafts using ResNet18 &amp; PyTorch
-          (84.7% accuracy).
-        </p>
-        <a href="assets/notebooks/deep-learning.html" class="view-btn view-btn-fixed" target="_blank" rel="noopener noreferrer">
-          View Project
-        </a>
-        <div class="card-overlay">
-          <a href="deep-learning.html" class="view-btn">View Project</a>
+      <a href="assets/notebooks/deep-learning.html"
+         class="project-link"
+         target="_blank"
+         rel="noopener noreferrer"
+      >
+        <div class="project-card">
+          <img src="assets/images/deep-learning.png" alt="Deep Learning CNN" />
+          <h3>Deep Learning CNN</h3>
+          <p>
+            Automated product classification for Artiszën Crafts using ResNet18 &amp; PyTorch
+            (84.7% accuracy).
+          </p>
         </div>
-      </div>
+      </a>
 
       <!-- NLP & Chatbot -->
-      <div class="project-card">
-        <img src="assets/nlp-chatbot.jpg" alt="NLP & Chatbot" />
-        <h3>NLP & Chatbot</h3>
-        <p>
-          End-to-end sentiment analysis &amp; Shopify FAQ bot powered by Dialogflow &amp; LangChain.
-        </p>
-        <div class="card-overlay">
-          <a href="nlp-chatbot.html" class="view-btn">View Project</a>
+      <a href="assets/notebooks/nlp-chatbot.html"
+         class="project-link"
+         target="_blank"
+         rel="noopener noreferrer"
+      >
+        <div class="project-card">
+          <img src="assets/nlp-chatbot.jpg" alt="NLP & Chatbot" />
+          <h3>NLP &amp; Chatbot</h3>
+          <p>
+            End-to-end sentiment analysis &amp; Shopify FAQ bot powered by Dialogflow &amp; LangChain.
+          </p>
         </div>
-      </div>
+      </a>
 
       <!-- Predictive Maintenance -->
-      <div class="project-card">
-        <img src="assets/images/predictive-maintenance.png" alt="Predictive Maintenance" />
-        <h3>Predictive Maintenance</h3>
-        <p>
-          Machine-failure prediction &amp; anomaly detection with SMOTE &amp; Random Forest (ROC-AUC 0.99).
-        </p>
-      </div>
+      <a href="assets/notebooks/predictive-maintenance.html"
+         class="project-link"
+         target="_blank"
+         rel="noopener noreferrer"
+      >
+        <div class="project-card">
+          <img src="assets/images/predictive-maintenance.png" alt="Predictive Maintenance" />
+          <h3>Predictive Maintenance</h3>
+          <p>
+            Machine-failure prediction &amp; anomaly detection with SMOTE &amp; Random Forest (ROC-AUC 0.99).
+          </p>
+        </div>
+      </a>
 
       <!-- Advanced Big Data Mgmt -->
-      <div class="project-card">
-        <img src="assets/images/big-data-management.png" alt="Big Data Management" />
-        <h3>Advanced Big Data Mgmt</h3>
-        <p>
-          End-to-end Big Data stack: MinIO, PostgreSQL, MongoDB, Cassandra, Spark &amp; Elasticsearch.
-        </p>
-      </div>
+      <a href="assets/notebooks/big-data-management.html"
+         class="project-link"
+         target="_blank"
+         rel="noopener noreferrer"
+      >
+        <div class="project-card">
+          <img src="assets/images/big-data-management.png" alt="Big Data Management" />
+          <h3>Advanced Big Data Mgmt</h3>
+          <p>
+            End-to-end Big Data stack: MinIO, PostgreSQL, MongoDB, Cassandra, Spark &amp; Elasticsearch.
+          </p>
+        </div>
+      </a>
+
     </div>
   </section>
 
@@ -344,5 +335,6 @@
       window.location.href = 'mailto:' + email + '?subject=Hello%20Neysha';
     }
   </script>
+
 </body>
 </html>
