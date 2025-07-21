@@ -94,15 +94,13 @@
       border-bottom: 2px solid #ccc;
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      /* left-aligned by default */
     }
     .skill-tags {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 0.5rem;
+      /* left-aligned by default */
     }
     .skill-tags span {
       background: #eee;
@@ -115,9 +113,7 @@
       grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
       gap: 1.5rem;
       margin-top: 1rem;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
+      /* left-aligned by default */
     }
     .project-card {
       border: 1px solid #ddd;
@@ -157,7 +153,7 @@
 
   <!-- Background Video -->
   <video autoplay muted loop id="bgVideo">
-    <source src="assets/images/background.mp4" type="video/mp4" />
+    <source src="assets/images/backgroundtrimmed.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
@@ -176,7 +172,7 @@
       </a>
       <div class="social">
         <a href="#" onclick="sendEmail(event)">✉️ Email</a>
-        <a href="https://www.linkedin.com/in/neysha-pagán-a7346a102/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/neysha-pag%C3%A1n-a7346a102/" target="_blank" rel="noopener noreferrer">
           🔗 LinkedIn
         </a>
         <a href="https://github.com/neypagan" target="_blank" rel="noopener noreferrer">
@@ -232,15 +228,13 @@
   <section class="projects">
     <h2>Projects</h2>
     <div class="projects-grid">
-
       <div class="project-card">
-        <img src="assets/images/deep-learning.png" alt="Deep Learning CNN" />
+        <img src="assets/images/deep-learning-cnn.png" alt="Deep Learning CNN" />
         <h3>Deep Learning CNN</h3>
         <p>
           Automated product classification for Artiszën Crafts using ResNet18 &amp; PyTorch (84.7% accuracy).
         </p>
       </div>
-
       <div class="project-card">
         <img src="assets/nlp-chatbot.jpg" alt="NLP & Chatbot" />
         <h3>NLP &amp; Chatbot</h3>
@@ -248,7 +242,6 @@
           End-to-end sentiment analysis &amp; Shopify FAQ bot powered by Dialogflow &amp; LangChain.
         </p>
       </div>
-
       <div class="project-card">
         <img src="assets/images/predictive-maintenance.png" alt="Predictive Maintenance" />
         <h3>Predictive Maintenance</h3>
@@ -256,7 +249,6 @@
           Machine-failure prediction &amp; anomaly detection with SMOTE &amp; Random Forest (ROC-AUC 0.99).
         </p>
       </div>
-
       <div class="project-card">
         <img src="assets/images/big-data-management.png" alt="Big Data Management" />
         <h3>Advanced Big Data Mgmt</h3>
@@ -264,7 +256,6 @@
           End-to-end Big Data stack: MinIO, PostgreSQL, MongoDB, Cassandra, Spark &amp; Elasticsearch.
         </p>
       </div>
-
     </div>
   </section>
 
