@@ -8,7 +8,8 @@
     /* Azure-esque font stack */
     body {
       margin: 0;
-      font-family: "Segoe UI", "Segoe UI Semilight", "Segoe UI Emoji", "Segoe UI Symbol", Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Segoe UI", "Segoe UI Semilight", "Segoe UI Emoji", "Segoe UI Symbol",
+                   Tahoma, Geneva, Verdana, sans-serif;
       background: #fff;
       color: #222;
     }
@@ -56,22 +57,17 @@
       border-bottom: 2px solid #ccc;
       padding-bottom: 0.5rem;
     }
-    /* Structured skill categories */
-    .skill-category {
-      margin-bottom: 1.5rem;
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 1rem;
     }
-    .skill-category h3 {
-      margin: 0 0 0.5rem 0;
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-    .skill-category span {
-      display: inline-block;
-      margin: 0.3rem 0.5rem 0 0;
+    .skill-tags span {
       background: #eee;
-      padding: 0.3rem 0.8rem;
+      padding: 0.5rem 1rem;
       border-radius: 0.25rem;
-      font-size: 0.85rem;
+      margin: 0.25rem;
+      font-size: 0.9rem;
     }
     .projects-grid {
       display: grid;
@@ -118,14 +114,17 @@
         scalable ETL workflows, AI/ML insights, and data-powered decisions.
       </p>
       <div class="contact">
-        <a class="button" href="assets/Neysha_Pagan_Resume2025.pdf" target="_blank" rel="noopener noreferrer">
+        <a class="button" href="assets/Neysha_Pagan_Resume2025.pdf"
+           target="_blank" rel="noopener noreferrer">
           📄 Résumé
         </a>
         <a href="#" onclick="sendEmail(event)">✉️ Email</a>
-        <a href="https://www.linkedin.com/in/neysha-pagán-a7346a102/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/neysha-pagán-a7346a102/"
+           target="_blank" rel="noopener noreferrer">
           🔗 LinkedIn
         </a>
-        <a href="https://github.com/neypagan" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/neypagan"
+           target="_blank" rel="noopener noreferrer">
           🐙 GitHub
         </a>
       </div>
@@ -134,62 +133,41 @@
 
   <section class="skills">
     <h2>Skills</h2>
-
-    <div class="skill-category">
-      <h3>Data Strategy & Governance</h3>
+    <div class="skill-tags">
       <span>Enterprise Data Architecture</span>
       <span>Data Governance Frameworks</span>
       <span>RPO &amp; RTO Planning</span>
-    </div>
-
-    <div class="skill-category">
-      <h3>Data Engineering</h3>
       <span>Azure Data Factory</span>
       <span>Azure Databricks &amp; PySpark</span>
       <span>SQL &amp; Delta Lake</span>
       <span>ETL / ELT Pipelines</span>
-    </div>
-
-    <div class="skill-category">
-      <h3>Cloud & DevOps</h3>
       <span>Microsoft Azure</span>
       <span>AWS</span>
       <span>GitHub Actions (CI/CD)</span>
       <span>Terraform &amp; ARM Templates</span>
-    </div>
-
-    <div class="skill-category">
-      <h3>Business Intelligence</h3>
       <span>Power BI</span>
       <span>Tableau</span>
       <span>DAX &amp; SSRS</span>
       <span>Dimensional Modeling</span>
-    </div>
-
-    <div class="skill-category">
-      <h3>Databases</h3>
       <span>SQL Server (2005–2022)</span>
       <span>Oracle (10g–12c)</span>
       <span>PostgreSQL &amp; MariaDB</span>
       <span>MongoDB &amp; Cassandra</span>
       <span>Elasticsearch</span>
-    </div>
-
-    <div class="skill-category">
-      <h3>AI & Machine Learning</h3>
       <span>Deep Learning (PyTorch, TensorFlow)</span>
       <span>NLP (spaCy, NLTK)</span>
       <span>Predictive Modeling (scikit-learn)</span>
       <span>Conversational AI (Dialogflow, LangChain)</span>
-    </div>
-
-    <div class="skill-category">
-      <h3>Tools & Programming</h3>
       <span>Python (pandas, matplotlib, seaborn)</span>
       <span>R (dplyr, ggplot2)</span>
       <span>PowerShell &amp; Bash</span>
       <span>JSON, Hadoop &amp; Hive</span>
       <span>Excel &amp; VBA</span>
+      <span>Backup &amp; Recovery</span>
+      <span>Performance Tuning</span>
+      <span>Security &amp; Compliance</span>
+      <span>Always On Availability Groups</span>
+      <span>Index Management</span>
     </div>
   </section>
 
