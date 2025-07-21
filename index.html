@@ -8,8 +8,8 @@
     /* Azure-esque font stack */
     body {
       margin: 0;
-      font-family: "Segoe UI", "Segoe UI Semilight", "Segoe UI Emoji", "Segoe UI Symbol",
-                   Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Segoe UI","Segoe UI Semilight","Segoe UI Emoji","Segoe UI Symbol",
+                   Tahoma,Geneva,Verdana,sans-serif;
       background: #fff;
       color: #222;
     }
@@ -17,27 +17,34 @@
       color: #0066cc;
       text-decoration: none;
     }
+
+    /* HEADER */
     header {
+      background: #f8f8f8;
+    }
+    .intro-header {
       display: flex;
       align-items: center;
       padding: 2rem;
-      background: #f8f8f8;
     }
-    header img {
+    .intro-header img {
       width: 140px;
       height: 140px;
       border-radius: 50%;
       margin-right: 2rem;
       object-fit: cover;
     }
-    header h1 {
+    .intro-header h1 {
       margin: 0;
       font-size: 2.5rem;
     }
-    header p {
-      margin: 0.5rem 0;
-      line-height: 1.4;
-      max-width: 600px;
+    .intro-paragraph {
+      padding: 0 2rem 2rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .contact {
+      padding: 0 2rem 2rem;
     }
     .contact a {
       margin-right: 1rem;
@@ -45,11 +52,13 @@
     }
     .button {
       display: inline-block;
-      margin-top: 1rem;
+      margin-top: 0.5rem;
       padding: 0.5rem 1rem;
       border: 1px solid #0066cc;
       border-radius: 0.25rem;
     }
+
+    /* SKILLS & PROJECTS */
     .skills, .projects {
       padding: 2rem;
     }
@@ -71,7 +80,7 @@
     }
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
       gap: 1.5rem;
       margin-top: 1rem;
     }
@@ -101,19 +110,23 @@
       line-height: 1.3;
     }
 
-    /* Responsive: float image in mobile so text wraps beneath */
+    /* RESPONSIVE FLOAT (mobile) */
     @media (max-width: 650px) {
-      header {
+      .intro-header {
         display: block;
+        text-align: center;
       }
-      header img {
-        float: left;
-        width: 120px;
-        height: 120px;
-        margin: 0 1rem 1rem 0;
+      .intro-header img {
+        float: none;
+        display: block;
+        margin: 0 auto 1rem;
       }
-      header div {
-        overflow: hidden;
+      .intro-header h1 {
+        margin-bottom: 1rem;
+      }
+      .intro-paragraph, .contact {
+        padding-left: 1rem;
+        padding-right: 1rem;
       }
     }
   </style>
@@ -121,29 +134,28 @@
 <body>
 
   <header>
-    <img src="assets/photo.jpeg" alt="Neysha Pagán">
-    <div>
+    <div class="intro-header">
+      <img src="assets/photo.jpeg" alt="Neysha Pagán">
       <h1>Neysha Pagán</h1>
-      <p>
-        I’m a data-driven solutions architect with 14+ years of experience modernizing databases and building analytics pipelines.
-        I bridge SQL Server, Oracle, PostgreSQL, NoSQL (MongoDB, Cassandra, Elasticsearch) and Azure cloud to deliver
-        scalable ETL workflows, AI/ML insights, and data-powered decisions.
-      </p>
-      <div class="contact">
-        <a class="button" href="assets/Neysha_Pagan_Resume2025.pdf"
-           target="_blank" rel="noopener noreferrer">
-          📄 Résumé
-        </a>
-        <a href="#" onclick="sendEmail(event)">✉️ Email</a>
-        <a href="https://www.linkedin.com/in/neysha-pag%C3%A1n-a7346a102/"
-           target="_blank" rel="noopener noreferrer">
-          🔗 LinkedIn
-        </a>
-        <a href="https://github.com/neypagan"
-           target="_blank" rel="noopener noreferrer">
-          🐙 GitHub
-        </a>
-      </div>
+    </div>
+
+    <p class="intro-paragraph">
+      I’m a data-driven solutions architect with 14+ years of experience modernizing databases and building analytics pipelines.
+      I bridge SQL Server, Oracle, PostgreSQL, NoSQL (MongoDB, Cassandra, Elasticsearch) and Azure cloud to deliver
+      scalable ETL workflows, AI/ML insights, and data-powered decisions.
+    </p>
+
+    <div class="contact">
+      <a class="button" href="assets/Neysha_Pagan_Resume2025.pdf" target="_blank" rel="noopener noreferrer">
+        📄 Résumé
+      </a>
+      <a href="#" onclick="sendEmail(event)">✉️ Email</a>
+      <a href="https://www.linkedin.com/in/neysha-pagán-a7346a102/" target="_blank" rel="noopener noreferrer">
+        🔗 LinkedIn
+      </a>
+      <a href="https://github.com/neypagan" target="_blank" rel="noopener noreferrer">
+        🐙 GitHub
+      </a>
     </div>
   </header>
 
