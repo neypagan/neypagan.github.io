@@ -18,7 +18,19 @@
       text-decoration: none;
     }
 
-    /* === Header & Video Background === */
+    /* === Background Video === */
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    /* === Header (transparent) === */
     header {
       position: relative;
       overflow: hidden;
@@ -26,15 +38,8 @@
       text-align: center;
       background: transparent;
     }
-    header video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.3;
+    header video + img {
+      margin-bottom: 1rem;
     }
     header img {
       width: 140px;
@@ -43,18 +48,17 @@
       object-fit: cover;
       border: 3px solid white;
       box-shadow: 0 0 10px rgba(0,0,0,0.15);
-      margin-bottom: 1rem;
     }
     header h1 {
-      font-size: 2.5rem;
       margin: 0.5rem 0;
+      font-size: 2.5rem;
     }
     header p {
       max-width: 700px;
       margin: 0 auto 1.5rem;
+      padding: 0 1rem;
       line-height: 1.6;
       font-size: 1.1rem;
-      padding: 0 1rem;
     }
 
     /* === Contact Links === */
@@ -108,7 +112,7 @@
     }
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+      grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
       gap: 1.5rem;
       margin-top: 1rem;
     }
@@ -148,13 +152,14 @@
 </head>
 <body>
 
-  <!-- Header Section with Video Background -->
-  <header>
-    <video autoplay muted loop>
-      <source src="assets/images/backgroundtrimmed.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+  <!-- Background Video -->
+  <video autoplay muted loop id="bgVideo" playsinline>
+    <source src="assets/images/backgroundtrimmed.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
+  <!-- Header Section -->
+  <header>
     <img src="assets/photo.jpeg" alt="Neysha Pagán" />
     <h1>Neysha Pagán</h1>
     <p>
@@ -269,4 +274,3 @@
   </script>
 </body>
 </html>
-```
