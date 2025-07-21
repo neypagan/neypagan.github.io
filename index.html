@@ -168,7 +168,21 @@
       font-size: 0.9rem;
       line-height: 1.3;
     }
-
+    /* === View Project Button === */
+  .view-btn {
+    display: inline-block;
+    margin: 0 0 1rem;
+    padding: 0.6rem 1.2rem;
+    background: #66b3ff;
+    color: #fff;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  .view-btn:hover {
+    background: #99ccff;
+  }
     /* === Responsive === */
     @media (max-width: 600px) {
       header h1 {
@@ -275,6 +289,20 @@
           </p>
         </div>
       </a>
+       <div class="project-card">
+      <img src="assets/images/deep-learning.png" alt="Deep Learning CNN" />
+      <h3>Deep Learning CNN</h3>
+      <p>
+        Automated product classification for Artiszën Crafts using ResNet18 &amp; PyTorch
+        (84.7% accuracy).
+      </p>
+      <a
+        href="assets/notebooks/deep-learning.html"
+        class="view-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >View Project</a>
+    </div>
 
       <!-- NLP & Chatbot -->
       <a href="assets/notebooks/nlp-chatbot.html"
