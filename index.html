@@ -79,40 +79,7 @@
   <section class="skills">
     <h2>Skills</h2>
     <div class="skill-tags">
-      <span>Enterprise Data Architecture</span>
-      <span>Data Governance Frameworks</span>
-      <span>RPO &amp; RTO Planning</span>
-      <span>Azure Data Factory</span>
-      <span>Azure Databricks &amp; PySpark</span>
-      <span>SQL &amp; Delta Lake</span>
-      <span>ETL / ELT Pipelines</span>
-      <span>Microsoft Azure</span>
-      <span>AWS</span>
-      <span>GitHub Actions (CI/CD)</span>
-      <span>Power BI</span>
-      <span>Tableau</span>
-      <span>DAX &amp; SSRS</span>
-      <span>Dimensional Modeling</span>
-      <span>SQL Server (2005–2022)</span>
-      <span>Oracle (10g–12c)</span>
-      <span>PostgreSQL &amp; MariaDB</span>
-      <span>MongoDB &amp; Cassandra</span>
-      <span>Elasticsearch</span>
-      <span>Deep Learning (PyTorch, TensorFlow)</span>
-      <span>NLP (spaCy, NLTK)</span>
-      <span>Predictive Modeling (scikit-learn)</span>
-      <span>Conversational AI (Dialogflow, LangChain)</span>
-      <span>Python (pandas, matplotlib, seaborn)</span>
-      <span>R (dplyr, ggplot2)</span>
-      <span>PowerShell &amp; Bash</span>
-      <span>JSON, Hadoop &amp; Hive</span>
-      <span>Excel &amp; VBA</span>
-      <span>Backup &amp; Recovery</span>
-      <span>Performance Tuning</span>
-      <span>Security &amp; Compliance</span>
-      <span>Always On Availability Groups</span>
-      <span>Index Management</span>
-      <span>Visual Studio Code</span>
+      <!-- skills tags -->
     </div>
   </section>
 
@@ -130,10 +97,10 @@
     <h2>Projects</h2>
     <div class="projects-grid">
 
-      <!-- Women in STEM: Disparities Analysis -->
+      <!-- Women in STEM -->
       <a href="assets/notebooks/WomenInSTEM.html" class="project-link" target="_blank" rel="noopener noreferrer">
         <div class="project-card">
-          <img src="assets/images/women-in-stem.png" alt="Women in STEM: Disparities Analysis" />
+          <img src="assets/images/women-in-stem.png" alt="Women in STEM" />
           <h3>Women in STEM</h3>
           <p>Comprehensive analysis of gender disparities in STEM fields using scripting analytics.</p>
         </div>
@@ -144,7 +111,7 @@
         <div class="project-card">
           <img src="assets/images/deep-learning.png" alt="Deep Learning CNN" />
           <h3>Deep Learning CNN</h3>
-          <p>Automated product classification for Artiszën Crafts using ResNet18 &amp; PyTorch (84.7% accuracy).</p>
+          <p>Automated product classification for Artiszën Crafts using ResNet18 &amp; PyTorch.</p>
         </div>
       </a>
 
@@ -153,7 +120,25 @@
         <div class="project-card">
           <img src="assets/images/predictive-maintenance.png" alt="Predictive Maintenance" />
           <h3>Predictive Maintenance</h3>
-          <p>Machine-failure prediction &amp; anomaly detection with SMOTE &amp; Random Forest (ROC-AUC 0.99).</p>
+          <p>Machine-failure prediction &amp; anomaly detection with SMOTE &amp; Random Forest.</p>
+        </div>
+      </a>
+
+      <!-- NLP & Chatbot -->
+      <a href="assets/notebooks/nlp-chatbot.html" class="project-link" target="_blank" rel="noopener noreferrer">
+        <div class="project-card">
+          <img src="assets/images/nlp-chatbot.jpg" alt="NLP & Chatbot" />
+          <h3>NLP &amp; Chatbot</h3>
+          <p>End-to-end sentiment analysis &amp; Shopify FAQ bot powered by Dialogflow &amp; LangChain.</p>
+        </div>
+      </a>
+
+      <!-- Advanced Big Data Mgmt -->
+      <a href="assets/notebooks/big-data-management.html" class="project-link" target="_blank" rel="noopener noreferrer">
+        <div class="project-card">
+          <img src="assets/images/big-data-management.png" alt="Advanced Big Data Mgmt" />
+          <h3>Advanced Big Data Mgmt</h3>
+          <p>End-to-end Big Data stack: MinIO, PostgreSQL, MongoDB, Cassandra, Spark &amp; Elasticsearch.</p>
         </div>
       </a>
 
@@ -164,10 +149,8 @@
     function sendEmail(event) {
       event.preventDefault();
       const email = 'npagan247@gmail.com';
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(email).then(() => alert('Email address copied to clipboard'));
-      }
-      window.location.href = 'mailto:' + email + '?subject=Hello%20Neysha';
+      navigator.clipboard.writeText(email).then(() => alert('Copied!'));
+      window.location.href = 'mailto:' + email;
     }
   </script>
 </body>
