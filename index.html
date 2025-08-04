@@ -6,43 +6,69 @@
   <title>Neysha Pagán — Portfolio</title>
   <style>
     /* === Global Styles === */
-    body { margin: 0; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; background: #f4f4f8; color: #222; overflow-x: hidden; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f8;
+      color: #222;
+      overflow-x: hidden;
+    }
     a { color: #0066cc; text-decoration: none; }
 
     /* === Header & Hero === */
     header {
-      position: relative; overflow: hidden;
-      padding: 4rem 1rem 2rem; text-align: center; background: transparent;
+      position: relative;
+      overflow: hidden;
+      padding: 4rem 1rem 2rem;
+      text-align: center;
+      background: transparent;
     }
     header video#headerVideo {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%; object-fit: cover;
-      z-index: -1; opacity: 0.9;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.9;
     }
     .header-content { position: relative; z-index: 1; }
     header img {
-      width: 140px; height: 140px; border-radius: 50%; object-fit: cover;
-      border: 3px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
       margin-bottom: 1rem;
     }
     header h1 { margin: 0.5rem 0; font-size: 2.5rem; color: #fff; }
     header p {
-      max-width: 700px; margin: 1.5rem auto; padding: 0 1rem;
-      line-height: 1.6; font-size: 1.1rem; color: #fff;
+      max-width: 700px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+      font-size: 1.1rem;
+      color: #fff;
     }
 
     /* === Contact === */
     .contact { margin-top: 1.5rem; z-index: 1; }
     .contact a.button {
-      display: inline-block; margin: 0.5rem; padding: 0.5rem 1.2rem;
-      border: 1px solid #0066cc; border-radius: 0.25rem;
-      background: #fff; font-size: 0.95rem;
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.5rem 1.2rem;
+      border: 1px solid #0066cc;
+      border-radius: 0.25rem;
+      background: #fff;
+      font-size: 0.95rem;
       transition: background 0.3s, color 0.3s;
     }
     .contact a.button:hover { background: #0066cc; color: #fff; }
     .contact .social {
-      display: flex; justify-content: center; gap: 1.5rem;
-      flex-wrap: wrap; margin-top: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
     }
     .contact .social a { font-size: 0.95rem; color: #66b3ff; }
     .contact .social a:hover { color: #99ccff; }
@@ -51,48 +77,101 @@
     section { padding: 2rem 1rem; }
     .skills, .projects { background: #f4f4f8; }
     .certifications { background: #fff; }
-    h2 { border-bottom: 2px solid #ccc; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
 
     /* === Skills Tags === */
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
     .skill-tags span {
-      background: #eee; padding: 0.5rem 1rem; border-radius: 0.25rem; font-size: 0.9rem;
+      background: #eee;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      font-size: 0.9rem;
     }
 
     /* === Certifications Grid === */
-    .cert-grid { display: flex; flex-wrap: wrap; gap: 2rem; }
-    .cert-group { flex: 1; min-width: 200px; }
-    .cert-group h3 { margin: 0 0 0.5rem; font-size: 1rem; color: #333; }
-    .cert-group ul { list-style: none; padding: 0; margin: 0; }
-    .cert-group li { margin: 0.4rem 0; font-size: 0.9rem; }
+    .cert-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .cert-group {
+      flex: 1;
+      min-width: 200px;
+    }
+    .cert-group h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+      color: #333;
+    }
+    .cert-group ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .cert-group li {
+      margin: 0.4rem 0;
+      font-size: 0.9rem;
+    }
 
     /* === Projects Grid === */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.5rem; margin-top: 1rem;
+      gap: 1.5rem;
+      margin-top: 1rem;
       align-items: stretch;
     }
     .project-link {
-      text-decoration: none; color: inherit;
-      display: flex; flex-direction: column;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
     }
     .project-card {
-      display: flex; flex-direction: column; height: 100%;
-      border: 1px solid #ddd; border-radius: 0.25rem;
-      background: #fafafa; overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border: 1px solid #ddd;
+      border-radius: 0.25rem;
+      background: #fafafa;
+      overflow: hidden;
       transition: transform .2s;
     }
     .project-card:hover { transform: translateY(-4px); }
     .project-card img {
-      flex: 0 0 200px; width: 100%; object-fit: cover;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      flex-shrink: 0;
     }
     .project-desc {
-      flex: 1; padding: 1rem;
-      display: flex; flex-direction: column; justify-content: center;
+      flex: 1;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
-    .project-desc h3 { margin: 0 0 0.5rem; font-size: 1.1rem; }
-    .project-desc p { margin: 0; font-size: 0.9rem; line-height: 1.3; }
+    .project-desc h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+    }
+    .project-desc p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
 
     /* === Responsive === */
     @media (max-width: 600px) {
@@ -104,6 +183,7 @@
   </style>
 </head>
 <body>
+
   <header>
     <video autoplay muted loop id="headerVideo" playsinline>
       <source src="assets/images/background_trimmed.mp4" type="video/mp4">
