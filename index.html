@@ -84,6 +84,13 @@
       font-size: 0.9rem;
     }
 
+    /* === Certifications Grid === */
+    .cert-grid { display: flex; flex-wrap: wrap; gap: 2rem; }
+    .cert-group { flex: 1; min-width: 200px; }
+    .cert-group h3 { margin: 0 0 0.5rem; font-size: 1rem; color: #333; }
+    .cert-group ul { list-style: none; padding: 0; margin: 0; }
+    .cert-group li { margin: 0.4rem 0; font-size: 0.9rem; }
+
     /* === Projects Grid === */
     .projects-grid {
       display: grid;
@@ -94,12 +101,8 @@
     }
     .project-link { text-decoration: none; color: inherit; }
     .project-card {
-      width: 100%;
-      border: 1px solid #ddd;
-      border-radius: 0.25rem;
-      background: #fafafa;
-      overflow: hidden;
-      text-align: center;
+      width: 100%; border: 1px solid #ddd; border-radius: 0.25rem;
+      background: #fafafa; overflow: hidden; text-align: center;
       transition: transform .2s;
     }
     .project-card:hover { transform: translateY(-4px); }
@@ -112,6 +115,7 @@
       header h1 { font-size: 2rem; }
       header p { font-size: 1rem; }
       .projects-grid { grid-template-columns: 1fr !important; }
+      .cert-grid { flex-direction: column; }
     }
   </style>
 </head>
@@ -178,19 +182,38 @@
 
   <section class="certifications">
     <h2>Certifications</h2>
-    <ul>
-      <li>Microsoft Certified: Azure Fundamentals (AZ-900)</li>
-      <li>Microsoft Certified: Azure Data Fundamentals (DP-900)</li>
-      <li>Profisee MDM Certification</li>
-      <li>SAFe Agilist (SA)</li>
-    </ul>
+    <div class="cert-grid">
+      <div class="cert-group">
+        <h3>Microsoft Professional Certified</h3>
+        <ul>
+          <li>August 2022 – Azure Database Administrator Associate</li>
+          <li>April 2022 – Azure Data Fundamentals</li>
+          <li>November 2020 – Azure Fundamentals</li>
+          <li>September 2018 – Administering a SQL Database Infrastructure</li>
+          <li>March 2017 – MTA: Database Fundamentals</li>
+        </ul>
+      </div>
+      <div class="cert-group">
+        <h3>Profisee</h3>
+        <ul>
+          <li>August 2022 – Master Data Architect</li>
+          <li>July 2022 – Master Data System Administrator</li>
+        </ul>
+      </div>
+      <div class="cert-group">
+        <h3>Others</h3>
+        <ul>
+          <li>October 2022 – SAFe 5.0 Agilist</li>
+          <li>2019 – IBM Big Data Technologies</li>
+          <li>2017 – Microsoft Professional Program: Big Data / Data Science / AI</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section class="projects">
     <h2>Projects</h2>
     <div class="projects-grid">
-
-      <!-- Women in STEM -->
       <a href="assets/notebooks/WomenInSTEM.html" class="project-link" target="_blank">
         <div class="project-card">
           <img src="assets/images/women-in-stem.png" alt="Women in STEM">
@@ -198,43 +221,34 @@
           <p>Analysis of gender disparities in STEM fields using scripting analytics (IST0652).</p>
         </div>
       </a>
-
-      <!-- Deep Learning CNN -->
       <a href="assets/notebooks/deep-learning.html" class="project-link" target="_blank">
         <div class="project-card">
           <img src="assets/images/deep-learning.png" alt="Deep Learning CNN">
           <h3>Deep Learning CNN</h3>
-          <p>Automated product classification for Artiszën Crafts using ResNet18 & PyTorch (84.7% accuracy).</p>
+          <p>Automated product classification for Artiszën Crafts using ResNet18 &amp; PyTorch (84.7% accuracy).</p>
         </div>
       </a>
-
-      <!-- Predictive Maintenance -->
       <a href="assets/notebooks/predictive-maintenance.html" class="project-link" target="_blank">
         <div class="project-card">
           <img src="assets/images/predictive-maintenance.png" alt="Predictive Maintenance">
           <h3>Predictive Maintenance for Industrial Equipment</h3>
-          <p>Machine-failure prediction & anomaly detection with SMOTE & Random Forest.</p>
+          <p>Machine-failure prediction &amp; anomaly detection with SMOTE &amp; Random Forest.</p>
         </div>
       </a>
-
-      <!-- NLP & Chatbot -->
       <a href="assets/notebooks/nlp-chatbot.html" class="project-link" target="_blank">
         <div class="project-card">
-          <img src="assets/images/nlp-chatbot.jpg" alt="NLP & Chatbot">
-          <h3>NLP & Chatbot</h3>
-          <p>Sentiment analysis & Shopify FAQ bot powered by Dialogflow & LangChain.</p>
+          <img src="assets/images/nlp-chatbot.jpg" alt="NLP &amp; Chatbot">
+          <h3>NLP &amp; Chatbot</h3>
+          <p>Sentiment analysis &amp; Shopify FAQ bot powered by Dialogflow &amp; LangChain.</p>
         </div>
       </a>
-
-      <!-- Advanced Big Data Mgmt -->
       <a href="assets/notebooks/big-data-management.html" class="project-link" target="_blank">
         <div class="project-card">
           <img src="assets/images/big-data-management.png" alt="Advanced Big Data Mgmt">
           <h3>Advanced Big Data Mgmt</h3>
-          <p>End-to-end big data stack: MinIO, PostgreSQL, MongoDB, Spark & Elasticsearch.</p>
+          <p>End-to-end big data stack: MinIO, PostgreSQL, MongoDB, Spark &amp; Elasticsearch.</p>
         </div>
       </a>
-
     </div>
   </section>
 
