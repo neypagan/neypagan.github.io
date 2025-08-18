@@ -76,7 +76,7 @@
     /* === Sections === */
     section { padding: 2rem 1rem; }
     .skills, .projects { background: #f4f4f8; }
-    .certifications { background: #fff; }
+    .certifications, .certs, .achievements { background: #fff; }
     h2 {
       border-bottom: 2px solid #ccc;
       padding-bottom: 0.5rem;
@@ -188,6 +188,27 @@
     .cta{display:inline-block;border:1px solid #0066cc;border-radius:.25rem;padding:.6rem 1.2rem;background:#fff;color:#0066cc;text-decoration:none;transition:background .3s,color .3s}
     .cta:hover{background:#0066cc;color:#fff}
 
+    /* === Data Architecture & Governance Certificates === */
+    .certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+    .cert-card{display:flex;flex-direction:column;border:1px solid #e5e5ef;border-radius:.5rem;background:#fafafa;overflow:hidden;color:inherit;text-decoration:none;transition:transform .2s}
+    .cert-card:hover{transform:translateY(-3px)}
+    .cert-card img{width:100%;height:160px;object-fit:cover;background:#fff}
+    .pdf-thumb{height:160px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #e5e5ef;font-weight:600;font-size:1.05rem;color:#0066cc;background:#fff}
+    .cert-meta{padding:.75rem 1rem}
+    .cert-meta h3{margin:0 0 .25rem;font-size:1rem}
+    .cert-meta p{margin:0;color:#555;font-size:.9rem;line-height:1.3}
+
+    /* === Career Achievements === */
+    .ach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+    .ach-card{border:1px solid #e5e5ef;background:#fafafa;border-radius:.5rem;padding:1rem;display:flex;flex-direction:column;gap:.5rem}
+    .ach-card header{display:flex;flex-direction:column;gap:.15rem}
+    .ach-card h3{margin:0;font-size:1.05rem}
+    .ach-meta{color:#666;font-size:.9rem}
+    .badges{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.25rem}
+    .badges span{font-size:.75rem;border:1px solid #d7d7e4;border-radius:999px;padding:.15rem .5rem;background:#fff}
+    .ach-card ul{margin:.25rem 0 0 1.1rem}
+    .ach-card li{margin:.25rem 0}
+
     /* === Responsive === */
     @media (max-width: 600px) {
       header h1 { font-size: 2rem; }
@@ -290,6 +311,42 @@
     </div>
   </section>
 
+  <!-- Data Architecture & Governance Certificates (image + PDFs) -->
+  <section class="certs">
+    <h2>Data Architecture &amp; Governance Certificates</h2>
+    <div class="certs-grid">
+
+      <!-- Image certificate -->
+      <a class="cert-card" href="assets/certificates/data-crossroads-masterclass.png" target="_blank" rel="noopener">
+        <img src="assets/certificates/data-crossroads-masterclass.png"
+             alt="Data Crossroads Academy — Tailoring Data Management Industry Frameworks to an Organization's Needs (certificate)">
+        <div class="cert-meta">
+          <h3>Data Crossroads Academy</h3>
+          <p>Masterclass: Tailoring Data Management Industry Frameworks to an Organization's Needs (Jun 12, 2025).</p>
+        </div>
+      </a>
+
+      <!-- PDF certificate 1 -->
+      <a class="cert-card" href="assets/certificates/Learning_Data_Governance.pdf" target="_blank" rel="noopener">
+        <div class="pdf-thumb">PDF certificate</div>
+        <div class="cert-meta">
+          <h3>Learning Data Governance</h3>
+          <p>Completion certificate (Jun 25, 2025).</p>
+        </div>
+      </a>
+
+      <!-- PDF certificate 2 -->
+      <a class="cert-card" href="assets/certificates/Taller_Planeacion_de_Arquitectura_de_Datos.pdf" target="_blank" rel="noopener">
+        <div class="pdf-thumb">PDF certificate</div>
+        <div class="cert-meta">
+          <h3>Taller: Planeación de Arquitectura de Datos</h3>
+          <p>Participation certificate (Jun 5, 2023).</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
   <section class="projects">
     <h2>Projects</h2>
     <p style="margin:0 0 0.75rem 0; color:#555; font-size:0.95rem;">
@@ -356,6 +413,62 @@
           </div>
         </div>
       </a>
+
+    </div>
+  </section>
+
+  <!-- Career Achievements -->
+  <section class="achievements">
+    <h2>Career Achievements</h2>
+    <div class="ach-grid">
+
+      <!-- Deloitte -->
+      <article class="ach-card">
+        <header>
+          <h3>Deloitte</h3>
+          <div class="ach-meta">Senior Data Architect · 2022–Present</div>
+          <div class="badges">
+            <span>Azure</span><span>Databricks</span><span>SQL</span><span>Governance</span>
+          </div>
+        </header>
+        <ul>
+          <li>Led enterprise data initiatives for Fortune 500 clients, improving audit readiness and data trust across multiple domains.</li>
+          <li>Defined governance standards (catalog, lineage, access policies) and reduced time-to-insight through reusable ELT patterns.</li>
+          <li>Partnered with security and product teams to align data delivery with compliance and privacy requirements.</li>
+        </ul>
+      </article>
+
+      <!-- Previous Role #1 -->
+      <article class="ach-card">
+        <header>
+          <h3>Previous Role</h3>
+          <div class="ach-meta">Data Architect · 2019–2022</div>
+          <div class="badges">
+            <span>SQL Server</span><span>ADF/SSIS</span><span>Power BI</span>
+          </div>
+        </header>
+        <ul>
+          <li>Migrated legacy analytics workloads, stabilizing refresh windows and lowering maintenance overhead.</li>
+          <li>Delivered executive dashboards for finance and operations, enabling KPI-driven decisions.</li>
+          <li>Standardized dimensional models and tuning (indexes/partitions) for large datasets.</li>
+        </ul>
+      </article>
+
+      <!-- Previous Role #2 -->
+      <article class="ach-card">
+        <header>
+          <h3>Previous Role</h3>
+          <div class="ach-meta">Data Engineer · 2016–2019</div>
+          <div class="badges">
+            <span>Python</span><span>PySpark</span><span>CI/CD</span>
+          </div>
+        </header>
+        <ul>
+          <li>Built reliable ingestion pipelines with monitoring &amp; alerting to meet strict SLAs.</li>
+          <li>Automated quality checks (schema &amp; null rules) to reduce defects prior to consumption.</li>
+          <li>Collaborated with cross-functional teams to deliver secure, well-documented data services.</li>
+        </ul>
+      </article>
 
     </div>
   </section>
