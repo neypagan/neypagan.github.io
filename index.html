@@ -19,11 +19,8 @@
     /* === Global Styles === */
     :root{--blue:#0066cc;--ink:#222;--ink-2:#555;--bg:#f4f4f8;--card:#fafafa;--border:#e5e5ef}
     *{box-sizing:border-box}
-    body{
-      margin:0; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg); color: var(--ink); overflow-x:hidden;
-    }
-    a{ color: var(--blue); text-decoration: none; }
+    body{ margin:0; font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif; background:var(--bg); color:var(--ink); overflow-x:hidden; }
+    a{ color:var(--blue); text-decoration:none; }
     :focus-visible{ outline:3px solid #99c2ff; outline-offset:2px }
 
     /* Skip link */
@@ -31,26 +28,16 @@
     .skip:focus{left:12px;top:12px;width:auto;height:auto;padding:.5rem 1rem;background:#fff;border:2px solid var(--blue);border-radius:.25rem;z-index:9999}
 
     /* === Header & Hero === */
-    header{
-      position:relative; overflow:hidden; padding:4rem 1rem 2rem; text-align:center; background:transparent;
-    }
-    header::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.25);z-index:-1}
-    header video#headerVideo{
-      position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:.9;
-    }
+    header{ position:relative; overflow:hidden; padding:4rem 1rem 2rem; text-align:center; background:transparent; }
+    header::after{ content:""; position:absolute; inset:0; background:rgba(0,0,0,.25); z-index:-1; }
+    header video#headerVideo{ position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:.9; }
     .header-content{ position:relative; z-index:1; }
-    header img{
-      width:140px; height:140px; border-radius:50%; object-fit:cover; border:3px solid #fff;
-      box-shadow:0 0 10px rgba(0,0,0,.15); margin-bottom:1rem;
-    }
+    header img{ width:140px; height:140px; border-radius:50%; object-fit:cover; border:3px solid #fff; box-shadow:0 0 10px rgba(0,0,0,.15); margin-bottom:1rem; }
     header h1{ margin:.5rem 0; font-size:2.5rem; color:#fff; }
     header p{ max-width:700px; margin:1.5rem auto; padding:0 1rem; line-height:1.6; font-size:1.1rem; color:#fff; }
 
-    /* Top quick-nav */
-    .topnav{
-      position:sticky; top:0; z-index:5; background:#fff; border-bottom:1px solid var(--border);
-      padding:.5rem 1rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
-    }
+    /* Sticky in-page nav */
+    .topnav{ position:sticky; top:0; z-index:5; background:#fff; border-bottom:1px solid var(--border); padding:.5rem 1rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
     .topnav a{ color:#333 }
     .topnav a:hover{ color:var(--blue) }
 
@@ -71,49 +58,30 @@
     .cert-group li{ margin:.4rem 0; font-size:.9rem; }
 
     /* Projects */
-    .projects-grid{
-      display:grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
-      gap:1.5rem; margin-top:1rem; align-items:stretch;
-    }
+    .projects-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1.5rem; margin-top:1rem; align-items:stretch; }
     .project-link{ display:flex; flex-direction:column; text-decoration:none; color:inherit; }
-    .project-card{
-      display:flex; flex-direction:column; height:100%; border:1px solid #ddd; border-radius:.25rem;
-      background:var(--card); overflow:hidden; transition: transform .2s;
-    }
-    .project-card:hover{ transform: translateY(-4px); }
+    .project-card{ display:flex; flex-direction:column; height:100%; border:1px solid #ddd; border-radius:.25rem; background:var(--card); overflow:hidden; transition:transform .2s; }
+    .project-card:hover{ transform:translateY(-4px); }
     .project-card img{ width:100%; aspect-ratio:1/1; object-fit:cover; flex-shrink:0; }
     .project-desc{ flex:1; padding:1rem; display:flex; flex-direction:column; }
     .project-desc h3{ margin:0 0 .5rem; font-size:1.1rem; }
-    .project-desc p{
-      margin:0; font-size:.9rem; line-height:1.3;
-      display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden;
-    }
+    .project-desc p{ margin:0; font-size:.9rem; line-height:1.3; display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
 
-    /* KPI cards */
-    .kpis-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; margin-top:.75rem; }
-    .kpi{ background:var(--card); border:1px solid var(--border); border-radius:.5rem; padding:1rem; }
-    .kpi h3{ margin:.2rem 0 0; font-size:1.8rem; }
-    .kpi p{ margin:.2rem 0 0; color:var(--ink-2); font-size:.95rem; }
+    /* Outcomes */
+    .outcomes-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; }
+    .out-card{ border:1px solid var(--border); border-radius:.5rem; background:var(--card); padding:1rem; display:flex; flex-direction:column; gap:.5rem; }
+    .out-card h3{ margin:.25rem 0 0; font-size:1.05rem; }
+    .out-card p{ margin:0; color:var(--ink-2); }
+    .out-tag{ display:inline-block; font-size:.75rem; border:1px solid #d7d7e4; border-radius:999px; padding:.15rem .5rem; background:#fff; margin-right:.35rem; }
 
     /* DA/Gov Certificates gallery */
     .certs-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem; }
-    .cert-card{ display:flex; flex-direction:column; border:1px solid var(--border); border-radius:.5rem; background:var(--card); overflow:hidden; color:inherit; transition: transform .2s; }
-    .cert-card:hover{ transform: translateY(-3px); }
+    .cert-card{ display:flex; flex-direction:column; border:1px solid var(--border); border-radius:.5rem; background:var(--card); overflow:hidden; color:inherit; transition:transform .2s; }
+    .cert-card:hover{ transform:translateY(-3px); }
     .cert-card img{ width:100%; height:160px; object-fit:cover; background:#fff; }
     .cert-meta{ padding:.75rem 1rem; }
     .cert-meta h3{ margin:0 0 .25rem; font-size:1rem; }
     .cert-meta p{ margin:0; color:var(--ink-2); font-size:.9rem; line-height:1.3; }
-
-    /* Achievements */
-    .ach-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; }
-    .ach-card{ border:1px solid var(--border); background:var(--card); border-radius:.5rem; padding:1rem; display:flex; flex-direction:column; gap:.5rem; }
-    .ach-card header{ display:flex; flex-direction:column; gap:.15rem; }
-    .ach-card h3{ margin:0; font-size:1.05rem; }
-    .ach-meta{ color:#666; font-size:.9rem; }
-    .badges{ display:flex; flex-wrap:wrap; gap:.35rem; margin-top:.25rem; }
-    .badges span{ font-size:.75rem; border:1px solid #d7d7e4; border-radius:999px; padding:.15rem .5rem; background:#fff; }
-    .ach-card ul{ margin:.25rem 0 0 1.1rem; }
-    .ach-card li{ margin:.25rem 0; }
 
     /* Next / CTA */
     .next-card{ border:1px solid var(--border); border-radius:.5rem; padding:1rem; background:var(--card); }
@@ -127,7 +95,7 @@
     footer{ text-align:center; padding:2rem 1rem; color:#666; background:#fff; }
 
     /* Responsive */
-    @media (max-width: 600px){
+    @media (max-width:600px){
       header h1{ font-size:2rem; }
       header p{ font-size:1rem; }
       .projects-grid{ grid-template-columns:1fr !important; }
@@ -154,7 +122,7 @@
         <a class="button" href="assets/NeyshaPagan_Resume2025.pdf" target="_blank" rel="noopener">📄 Résumé</a>
         <div class="social">
           <a href="#" onclick="sendEmail(event)" aria-label="Email Neysha">✉️ Email</a>
-          <a href="https://www.linkedin.com/in/neysha-pag%C3%A1n-a7346a102/" target="_blank" rel="noopener" aria-label="LinkedIn profile">🔗 LinkedIn</a>
+          <a href="https://www.linkedin.com/in/neysha-pagán-a7346a102/" target="_blank" rel="noopener" aria-label="LinkedIn profile">🔗 LinkedIn</a>
           <a href="https://github.com/neypagan" target="_blank" rel="noopener" aria-label="GitHub profile">🐙 GitHub</a>
         </div>
       </div>
@@ -165,7 +133,7 @@
   <nav class="topnav" aria-label="Page sections">
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
-    <a href="#impact">Results &amp; Impact</a>
+    <a href="#outcomes">Project Outcomes</a>
     <a href="#da-gov-certs">DA/Gov Certificates</a>
     <a href="#next">What’s Next</a>
     <a href="#contact">Contact</a>
@@ -305,30 +273,41 @@
       </div>
     </section>
 
-    <!-- Results & Impact -->
-    <section id="impact" class="impact">
-      <h2>Results &amp; Impact</h2>
-      <div class="kpis-grid">
-        <div class="kpi">
-          <div style="color:var(--blue);font-weight:600">Product Tagging</div>
-          <h3>−80%</h3>
-          <p>Less manual time via CNN-based catalog automation (Artiszën Crafts).</p>
-        </div>
-        <div class="kpi">
-          <div style="color:var(--blue);font-weight:600">Predictive Maintenance</div>
-          <h3>Recall 88%</h3>
-          <p>Random Forest on AI4I dataset, identifying failure cases.</p>
-        </div>
-        <div class="kpi">
-          <div style="color:var(--blue);font-weight:600">NLP Sentiment</div>
-          <h3>Accuracy 63.14%</h3>
-          <p>Hybrid TF-IDF + lexicon model on multi-class movie reviews.</p>
-        </div>
-        <div class="kpi">
-          <div style="color:var(--blue);font-weight:600">Childcare Affordability</div>
-          <h3>13.1%</h3>
-          <p>Infant center-based care share of median family income (NH, 2018).</p>
-        </div>
+    <!-- Project Outcomes (replaces KPIs) -->
+    <section id="outcomes" class="outcomes">
+      <h2>Project Outcomes</h2>
+      <div class="outcomes-grid">
+
+        <article class="out-card">
+          <span class="out-tag">Deep Learning</span>
+          <h3>Automated Product Tagging</h3>
+          <p>ResNet18 model learned reliable features from limited, imbalanced data and reduced manual catalog tagging effort by <strong>~80%</strong>, enabling faster product onboarding for Artiszën Crafts.</p>
+        </article>
+
+        <article class="out-card">
+          <span class="out-tag">Big Data</span>
+          <h3>Unified Childcare Affordability Pipeline</h3>
+          <p>Built an end-to-end pipeline joining childcare prices (6,284 rows), labor stats, and state incomes into Cassandra/MongoDB, powering Kibana dashboards for county/state affordability analysis.</p>
+        </article>
+
+        <article class="out-card">
+          <span class="out-tag">Analytics</span>
+          <h3>Women in STEM Evidence</h3>
+          <p>Surface state-level disparities (e.g., women’s STEM share ≈29%) and pay gaps with choropleths and ranked gaps, giving policy stakeholders targeted levers for equity programs.</p>
+        </article>
+
+        <article class="out-card">
+          <span class="out-tag">NLP</span>
+          <h3>Better Minority-Class Sentiment</h3>
+          <p>A hybrid TF-IDF + MPQA lexicon model improved precision/F1 on rare sentiment classes versus TF-IDF alone—useful for customer feedback signals where extremes are scarce.</p>
+        </article>
+
+        <article class="out-card">
+          <span class="out-tag">ML Ops</span>
+          <h3>Failure Risk Detection</h3>
+          <p>On AI4I, class-balanced Random Forest achieved strong recall on failures, supporting proactive maintenance scheduling to reduce unplanned downtime.</p>
+        </article>
+
       </div>
     </section>
 
@@ -394,7 +373,7 @@
       <h2>Get in Touch</h2>
       <p style="margin:.5rem 0 1rem;color:#555">Open to collaborations, advisory work, and leadership roles in data &amp; AI.</p>
       <div class="cta-wrap">
-        <a class="cta" href="https://www.linkedin.com/in/neysha-pag%C3%A1n-a7346a102/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <a class="cta" href="https://www.linkedin.com/in/neysha-pagán-a7346a102/" target="_blank" rel="noopener">Connect on LinkedIn</a>
         &nbsp;&nbsp;
         <a class="cta" href="assets/NeyshaPagan_Resume2025.pdf" target="_blank" rel="noopener">Download Résumé</a>
       </div>
