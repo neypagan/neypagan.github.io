@@ -168,7 +168,7 @@
       font-size: 0.9rem;
       line-height: 1.3;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 4; /* allow subtitle + description + instruction */
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -192,7 +192,7 @@
     <div class="header-content">
       <img src="assets/photo.jpeg" alt="Neysha Pagán">
       <h1>Neysha Pagán</h1>
-      <p>Data-driven solutions architect with 14+ years modernizing databases and building scalable ETL workflows, AI/ML insights, and analytics pipelines in cloud and on-premise environments.</p>
+      <p>Data-driven solutions architect with 13+ years modernizing databases and building scalable ETL workflows, AI/ML insights, and analytics pipelines in cloud and on-premise environments.</p>
       <div class="contact">
         <a class="button" href="assets/NeyshaPagan_Resume2025.pdf" target="_blank" rel="noopener">📄 Résumé</a>
         <div class="social">
@@ -252,7 +252,7 @@
         <ul>
           <li>Azure Database Administrator Associate - August 2022</li>
           <li>Azure Data Fundamentals - April 2022</li>
-          <li>Azure Fundamentals - November 2020 </li>
+          <li>Azure Fundamentals - November 2020</li>
           <li>Administering a SQL Database Infrastructure - September 2018</li>
           <li>MTA: Database Fundamentals - March 2017</li>
         </ul>
@@ -267,9 +267,9 @@
       <div class="cert-group">
         <h3>Others</h3>
         <ul>
-          <li>October 2022 – SAFe 5.0 Agilist</li>
-          <li>2019 – IBM Big Data Technologies</li>
-          <li>2017 – Microsoft Professional Program: Big Data / Data Science / AI</li>
+          <li>SAFe 5.0 Agilist — October 2022</li>
+          <li>IBM Big Data Technologies — 2019</li>
+          <li>Microsoft Professional Program: Big Data / Data Science / AI — 2017</li>
         </ul>
       </div>
     </div>
@@ -277,59 +277,67 @@
 
   <section class="projects">
     <h2>Projects</h2>
+    <p style="margin:0 0 0.75rem 0; color:#555; font-size:0.95rem;">
+      Click any card to view the full project.
+    </p>
     <div class="projects-grid">
 
       <!-- Women in STEM -->
-      <a href="assets/notebooks/WomenInSTEM.html" class="project-link" target="_blank">
+      <a href="assets/notebooks/WomenInSTEM.html" class="project-link" target="_blank" rel="noopener">
         <div class="project-card">
-          <img src="assets/images/women-stem.png?v=2" alt="Women in STEM">
+          <img src="assets/images/women-stem.png?v=2" alt="Women in STEM project card">
           <div class="project-desc">
             <h3>Women in STEM</h3>
-            <p>Analysis of gender disparities in STEM fields using scripting analytics.</p>
+            <p><em>Scripting for Data Analysis</em><br>
+            Analysis of gender disparities in STEM employment and pay equity across U.S. states. Click the card to view the full project.</p>
           </div>
         </div>
       </a>
 
-      <!-- Deep Learning CNN -->
-      <a href="assets/notebooks/deep-learning.html" class="project-link" target="_blank">
+      <!-- Product Image Classification (Deep Learning) -->
+      <a href="assets/notebooks/deep-learning.html" class="project-link" target="_blank" rel="noopener">
         <div class="project-card">
-          <img src="assets/images/deep-learning.png" alt="Deep Learning CNN">
+          <img src="assets/images/deep-learning.png" alt="Product Image Classification (Deep Learning) card">
           <div class="project-desc">
-            <h3>Deep Learning CNN</h3>
-            <p>Automated product classification for Artiszën Crafts using ResNet18 &amp; PyTorch (84.7% accuracy).</p>
+            <h3>Product Image Classification (Deep Learning)</h3>
+            <p><em>Deep Learning in Practice</em><br>
+            CNN-based classification of Artiszën Crafts product images (~84.7% accuracy). Click the card to view the full project.</p>
           </div>
         </div>
       </a>
 
-      <!-- Predictive Maintenance -->
-      <a href="assets/notebooks/predictive-maintenance.html" class="project-link" target="_blank">
+      <!-- Predictive Maintenance for Industrial Equipment -->
+      <a href="https://github.com/neypagan/predictive-maintenance" class="project-link" target="_blank" rel="noopener">
         <div class="project-card">
-          <img src="assets/images/predictive-maintenance.png" alt="Predictive Maintenance">
+          <img src="assets/images/predictive-maintenance.png" alt="Predictive Maintenance for Industrial Equipment card">
           <div class="project-desc">
             <h3>Predictive Maintenance for Industrial Equipment</h3>
-            <p>Machine-failure prediction &amp; anomaly detection with SMOTE &amp; Random Forest.</p>
+            <p><em>Big Data Analytics</em><br>
+            Machine-failure prediction and anomaly detection with SMOTE and Random Forest. Click the card to view the full project.</p>
           </div>
         </div>
       </a>
 
-      <!-- NLP & Chatbot -->
-      <a href="assets/notebooks/nlp-chatbot.html" class="project-link" target="_blank">
+      <!-- Sentiment Classification of Movie Reviews using NLP Techniques -->
+      <a href="/movie-review-sentiment" class="project-link" target="_blank" rel="noopener">
         <div class="project-card">
-          <img src="assets/images/nlp-chatbot.jpg" alt="NLP & Chatbot">
+          <img src="assets/images/nlp-chatbot.jpg" alt="Sentiment Classification of Movie Reviews using NLP Techniques card">
           <div class="project-desc">
-            <h3>NLP &amp; Chatbot</h3>
-            <p>Sentiment analysis &amp; Shopify FAQ bot powered by Dialogflow &amp; LangChain.</p>
+            <h3>Sentiment Classification of Movie Reviews using NLP Techniques</h3>
+            <p><em>Natural Language Processing</em><br>
+            Hybrid TF-IDF + lexicon features for 5-class sentiment on Rotten Tomatoes phrases. Click the card to view the full project.</p>
           </div>
         </div>
       </a>
 
-      <!-- Advanced Big Data Mgmt -->
-      <a href="assets/notebooks/big-data-management.html" class="project-link" target="_blank">
+      <!-- Childcare Costs vs. Family Income and Employment Data -->
+      <a href="https://github.com/neypagan/Childcare-Costs" class="project-link" target="_blank" rel="noopener">
         <div class="project-card">
-          <img src="assets/images/big-data-management.png" alt="Advanced Big Data Mgmt">
+          <img src="assets/images/big-data-management.png" alt="Childcare Costs vs. Family Income and Employment Data card">
           <div class="project-desc">
-            <h3>Advanced Big Data Mgmt</h3>
-            <p>End-to-end big data stack: MinIO, PostgreSQL, MongoDB, Spark &amp; Elasticsearch.</p>
+            <h3>Childcare Costs vs. Family Income and Employment Data</h3>
+            <p><em>Advanced Big Data Management</em><br>
+            End-to-end pipeline integrating childcare prices, labor stats, and state incomes with Spark, Cassandra/MongoDB, and Kibana dashboards. Click the card to view the full project.</p>
           </div>
         </div>
       </a>
