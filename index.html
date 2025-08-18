@@ -46,7 +46,12 @@
     h2{ border-bottom:2px solid #ccc; padding-bottom:.5rem; margin-bottom:1rem; }
 
     /* About (left aligned, no centering) */
-    .about p{ max-width: 900px; margin: .5rem 0; line-height: 1.7; color: var(--ink-2); }
+    .about p{
+      max-width:none;           /* quita el límite */
+      margin:.5rem 0;           /* alineado a la izquierda */
+      line-height:1.7;
+      color:var(--ink-2);
+    }
 
     /* Skills */
     .skills{ background:var(--bg); }
@@ -61,8 +66,12 @@
     .cert-group li{ margin:.4rem 0; font-size:.9rem; }
 
     /* Portfolio Summary (left aligned, no centering) */
-    .summary p, .summary ul{ max-width: 900px; margin: .5rem 0; color: var(--ink-2); }
-    .summary .cta-wrap{ text-align:left; margin-top:1rem; }
+    .summary p,
+    .summary ul{
+      max-width:none;           /* quita el límite */
+      margin:.5rem 0;           /* sin centrado */
+      color:var(--ink-2);
+    }
 
     /* Projects – wider cards */
     .projects-grid{
