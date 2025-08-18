@@ -168,10 +168,25 @@
       font-size: 0.9rem;
       line-height: 1.3;
       display: -webkit-box;
-      -webkit-line-clamp: 4; /* allow subtitle + description + instruction */
+      -webkit-line-clamp: 4; /* subtitle + description + instruction */
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
+
+    /* === Impact KPIs === */
+    .kpis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:.75rem}
+    .kpi{background:#fff;border:1px solid #e5e5ef;border-radius:.5rem;padding:1rem}
+    .kpi h3{margin:.2rem 0 0;font-size:1.8rem}
+    .kpi p{margin:.2rem 0 0;color:#555;font-size:.95rem}
+
+    /* === Next Steps / CTA === */
+    .next-steps{background:#fff}
+    .next-card{border:1px solid #e5e5ef;border-radius:.5rem;padding:1rem;background:#fafafa}
+    .next-card ul{margin:.5rem 0 0 1.1rem}
+    .next-card li{margin:.35rem 0}
+    .cta-wrap{text-align:center;margin-top:1rem}
+    .cta{display:inline-block;border:1px solid #0066cc;border-radius:.25rem;padding:.6rem 1.2rem;background:#fff;color:#0066cc;text-decoration:none;transition:background .3s,color .3s}
+    .cta:hover{background:#0066cc;color:#fff}
 
     /* === Responsive === */
     @media (max-width: 600px) {
@@ -250,18 +265,18 @@
       <div class="cert-group">
         <h3>Microsoft Professional Certified</h3>
         <ul>
-          <li>Azure Database Administrator Associate - August 2022</li>
-          <li>Azure Data Fundamentals - April 2022</li>
-          <li>Azure Fundamentals - November 2020</li>
-          <li>Administering a SQL Database Infrastructure - September 2018</li>
-          <li>MTA: Database Fundamentals - March 2017</li>
+          <li>Azure Database Administrator Associate — August 2022</li>
+          <li>Azure Data Fundamentals — April 2022</li>
+          <li>Azure Fundamentals — November 2020</li>
+          <li>Administering a SQL Database Infrastructure — September 2018</li>
+          <li>MTA: Database Fundamentals — March 2017</li>
         </ul>
       </div>
       <div class="cert-group">
         <h3>Profisee</h3>
         <ul>
-          <li>Master Data Architect - August 2022</li>
-          <li>Master Data System Administrator - July 2022</li>
+          <li>Master Data Architect — August 2022</li>
+          <li>Master Data System Administrator — July 2022</li>
         </ul>
       </div>
       <div class="cert-group">
@@ -319,7 +334,7 @@
       </a>
 
       <!-- Sentiment Classification of Movie Reviews using NLP Techniques -->
-      <a href="assets/notebooks/movie-review-sentiment" class="project-link" target="_blank" rel="noopener">
+      <a href="assets/notebooks/movie-review-sentiment.html" class="project-link" target="_blank" rel="noopener">
         <div class="project-card">
           <img src="assets/images/nlp.png" alt="Sentiment Classification of Movie Reviews using NLP Techniques card">
           <div class="project-desc">
@@ -337,11 +352,65 @@
           <div class="project-desc">
             <h3>Childcare Costs vs. Family Income and Employment Data</h3>
             <p><em>Advanced Big Data Management</em><br>
-             Three-part project: integrates childcare prices, labor stats, and state incomes with Spark, Cassandra/MongoDB, and Kibana dashboards. Click the card to view the full project.</p>
+             Three-part project integrating childcare prices, labor statistics, and state incomes with Spark, Cassandra/MongoDB, and Kibana dashboards. Click the card to view the full project.</p>
           </div>
         </div>
       </a>
 
+    </div>
+  </section>
+
+  <!-- Results & Impact -->
+  <section class="impact">
+    <h2>Results & Impact</h2>
+    <div class="kpis-grid">
+      <div class="kpi">
+        <div style="color:#0066cc;font-weight:600">Product Tagging</div>
+        <h3>−80%</h3>
+        <p>Less manual time via CNN automation for cataloging.</p>
+      </div>
+      <div class="kpi">
+        <div style="color:#0066cc;font-weight:600">Data Ingestion</div>
+        <h3>88% faster</h3>
+        <p>Delta Lake medallion pipeline (4h → 45m) on Databricks.</p>
+      </div>
+      <div class="kpi">
+        <div style="color:#0066cc;font-weight:600">Streaming</div>
+        <h3>10k/hr</h3>
+        <p>Tweets processed with &lt;30s latency for brand sentiment.</p>
+      </div>
+      <div class="kpi">
+        <div style="color:#0066cc;font-weight:600">NLP Model</div>
+        <h3>AUC 0.92</h3>
+        <p>Movie-review sentiment pipeline (hybrid features).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What’s Next -->
+  <section class="next-steps">
+    <h2>What’s Next</h2>
+    <div class="next-card">
+      <p>Advancing toward a <strong>Chief Data &amp; AI Officer (CDAO)</strong> track, combining enterprise data governance, responsible AI strategy, and cloud-native adoption at scale.</p>
+      <ul>
+        <li>Explore <em>CDAO / AI Leadership</em> programs with emphasis on ethics, governance, and business transformation.</li>
+        <li>Deepen MLOps (monitoring, drift, lineage) and multi-cloud Lakehouse platforms.</li>
+        <li>Scale measurable impact in automation, data quality, and time-to-insight.</li>
+      </ul>
+      <div class="cta-wrap">
+        <a class="cta" href="mailto:npagan247@gmail.com?subject=Opportunities%20-%20CDAO%20Path">Discuss CDAO Path</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get in touch -->
+  <section class="contact-cta">
+    <h2>Get in Touch</h2>
+    <p style="margin:.5rem 0 1rem;color:#555">Open to collaborations, advisory work, and leadership roles in data &amp; AI.</p>
+    <div class="cta-wrap">
+      <a class="cta" href="https://www.linkedin.com/in/neysha-pagán-a7346a102/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      &nbsp;&nbsp;
+      <a class="cta" href="assets/NeyshaPagan_Resume2025.pdf" target="_blank" rel="noopener">Download Résumé</a>
     </div>
   </section>
 
