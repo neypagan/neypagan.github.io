@@ -1,451 +1,514 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Neysha Pagán — Portfolio</title>
+
+  <!-- SEO & Social -->
+  <meta name="description" content="Portfolio of Neysha Pagán: data architecture, governance, ML/NLP and big data. Projects with PyTorch, scikit-learn, Spark, Cassandra, MongoDB and dashboards." />
+  <meta property="og:title" content="Neysha Pagán — Data & AI Portfolio" />
+  <meta property="og:description" content="Data Architect & Engineer (13+ yrs). Projects in Deep Learning, NLP, Predictive Maintenance and Big Data pipelines." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://neypagan.github.io/" />
+  <meta property="og:image" content="https://neypagan.github.io/assets/photo.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/photo.jpeg" />
+
   <style>
     /* === Global Styles === */
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f4f8;
-      color: #222;
-      overflow-x: hidden;
+    :root{--blue:#0066cc;--ink:#222;--ink-2:#555;--bg:#f4f4f8;--card:#fafafa;--border:#e5e5ef}
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg); color: var(--ink); overflow-x:hidden;
     }
-    a { color: #0066cc; text-decoration: none; }
+    a{ color: var(--blue); text-decoration: none; }
+    :focus-visible{ outline:3px solid #99c2ff; outline-offset:2px }
+
+    /* Skip link */
+    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{left:12px;top:12px;width:auto;height:auto;padding:.5rem 1rem;background:#fff;border:2px solid var(--blue);border-radius:.25rem;z-index:9999}
 
     /* === Header & Hero === */
-    header {
-      position: relative;
-      overflow: hidden;
-      padding: 4rem 1rem 2rem;
-      text-align: center;
-      background: transparent;
+    header{
+      position:relative; overflow:hidden; padding:4rem 1rem 2rem; text-align:center; background:transparent;
     }
-    header video#headerVideo {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.9;
+    header::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.25);z-index:-1}
+    header video#headerVideo{
+      position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:.9;
     }
-    .header-content { position: relative; z-index: 1; }
-    header img {
-      width: 140px; height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.15);
-      margin-bottom: 1rem;
+    .header-content{ position:relative; z-index:1; }
+    header img{
+      width:140px; height:140px; border-radius:50%; object-fit:cover; border:3px solid #fff;
+      box-shadow:0 0 10px rgba(0,0,0,.15); margin-bottom:1rem;
     }
-    header h1 { margin: 0.5rem 0; font-size: 2.5rem; color: #fff; }
-    header p {
-      max-width: 700px;
-      margin: 1.5rem auto;
-      padding: 0 1rem;
-      line-height: 1.6;
-      font-size: 1.1rem;
-      color: #fff;
+    header h1{ margin:.5rem 0; font-size:2.5rem; color:#fff; }
+    header p{ max-width:700px; margin:1.5rem auto; padding:0 1rem; line-height:1.6; font-size:1.1rem; color:#fff; }
+
+    /* Top quick-nav */
+    .topnav{
+      position:sticky; top:0; z-index:5; background:#fff; border-bottom:1px solid var(--border);
+      padding:.5rem 1rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
+    }
+    .topnav a{ color:#333 }
+    .topnav a:hover{ color:var(--blue) }
+
+    /* Sections */
+    section{ padding:2rem 1rem; background:#fff; }
+    h2{ border-bottom:2px solid #ccc; padding-bottom:.5rem; margin-bottom:1rem; }
+
+    /* Skills */
+    .skills{ background:var(--bg); }
+    .skill-tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
+    .skill-tags span{ background:#eee; padding:.5rem 1rem; border-radius:.25rem; font-size:.9rem; }
+
+    /* Core certs list */
+    .cert-grid{ display:flex; flex-wrap:wrap; gap:2rem; }
+    .cert-group{ flex:1; min-width:200px; }
+    .cert-group h3{ margin:0 0 .5rem; font-size:1rem; color:#333; }
+    .cert-group ul{ list-style:none; padding:0; margin:0; }
+    .cert-group li{ margin:.4rem 0; font-size:.9rem; }
+
+    /* Projects */
+    .projects-grid{
+      display:grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+      gap:1.5rem; margin-top:1rem; align-items:stretch;
+    }
+    .project-link{ display:flex; flex-direction:column; text-decoration:none; color:inherit; }
+    .project-card{
+      display:flex; flex-direction:column; height:100%; border:1px solid #ddd; border-radius:.25rem;
+      background:var(--card); overflow:hidden; transition: transform .2s;
+    }
+    .project-card:hover{ transform: translateY(-4px); }
+    .project-card img{ width:100%; aspect-ratio:1/1; object-fit:cover; flex-shrink:0; }
+    .project-desc{ flex:1; padding:1rem; display:flex; flex-direction:column; }
+    .project-desc h3{ margin:0 0 .5rem; font-size:1.1rem; }
+    .project-desc p{
+      margin:0; font-size:.9rem; line-height:1.3;
+      display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden;
     }
 
-    /* === Contact === */
-    .contact { margin-top: 1.5rem; z-index: 1; }
-    .contact a.button {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.5rem 1.2rem;
-      border: 1px solid #0066cc;
-      border-radius: 0.25rem;
-      background: #fff;
-      font-size: 0.95rem;
-      transition: background 0.3s, color 0.3s;
-    }
-    .contact a.button:hover { background: #0066cc; color: #fff; }
-    .contact .social {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-top: 0.5rem;
-    }
-    .contact .social a { font-size: 0.95rem; color: #66b3ff; }
-    .contact .social a:hover { color: #99ccff; }
+    /* KPI cards */
+    .kpis-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; margin-top:.75rem; }
+    .kpi{ background:var(--card); border:1px solid var(--border); border-radius:.5rem; padding:1rem; }
+    .kpi h3{ margin:.2rem 0 0; font-size:1.8rem; }
+    .kpi p{ margin:.2rem 0 0; color:var(--ink-2); font-size:.95rem; }
 
-    /* === Sections === */
-    section { padding: 2rem 1rem; }
-    .skills { background: #f4f4f8; }
-    .certifications, .projects, .impact, .certs, .achievements, .next-steps, .contact-cta { background: #fff; }
-    h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
+    /* DA/Gov Certificates gallery */
+    .certs-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem; }
+    .cert-card{ display:flex; flex-direction:column; border:1px solid var(--border); border-radius:.5rem; background:var(--card); overflow:hidden; color:inherit; transition: transform .2s; }
+    .cert-card:hover{ transform: translateY(-3px); }
+    .cert-card img{ width:100%; height:160px; object-fit:cover; background:#fff; }
+    .cert-meta{ padding:.75rem 1rem; }
+    .cert-meta h3{ margin:0 0 .25rem; font-size:1rem; }
+    .cert-meta p{ margin:0; color:var(--ink-2); font-size:.9rem; line-height:1.3; }
 
-    /* === Skills Tags === */
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .skill-tags span {
-      background: #eee;
-      padding: 0.5rem 1rem;
-      border-radius: 0.25rem;
-      font-size: 0.9rem;
-    }
+    /* Achievements */
+    .ach-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; }
+    .ach-card{ border:1px solid var(--border); background:var(--card); border-radius:.5rem; padding:1rem; display:flex; flex-direction:column; gap:.5rem; }
+    .ach-card header{ display:flex; flex-direction:column; gap:.15rem; }
+    .ach-card h3{ margin:0; font-size:1.05rem; }
+    .ach-meta{ color:#666; font-size:.9rem; }
+    .badges{ display:flex; flex-wrap:wrap; gap:.35rem; margin-top:.25rem; }
+    .badges span{ font-size:.75rem; border:1px solid #d7d7e4; border-radius:999px; padding:.15rem .5rem; background:#fff; }
+    .ach-card ul{ margin:.25rem 0 0 1.1rem; }
+    .ach-card li{ margin:.25rem 0; }
 
-    /* === Certifications Grid (bulleted list) === */
-    .cert-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .cert-group { flex: 1; min-width: 200px; }
-    .cert-group h3 { margin: 0 0 0.5rem; font-size: 1rem; color: #333; }
-    .cert-group ul { list-style: none; padding: 0; margin: 0; }
-    .cert-group li { margin: 0.4rem 0; font-size: 0.9rem; }
+    /* Next / CTA */
+    .next-card{ border:1px solid var(--border); border-radius:.5rem; padding:1rem; background:var(--card); }
+    .next-card ul{ margin:.5rem 0 0 1.1rem; }
+    .next-card li{ margin:.35rem 0; }
+    .cta-wrap{ text-align:center; margin-top:1rem; }
+    .cta{ display:inline-block; border:1px solid var(--blue); border-radius:.25rem; padding:.6rem 1.2rem; background:#fff; color:var(--blue); text-decoration:none; transition:background .3s,color .3s; }
+    .cta:hover{ background:var(--blue); color:#fff; }
 
-    /* === Projects Grid === */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
-      align-items: stretch;
-    }
-    .project-link { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
-    .project-card {
-      display: flex; flex-direction: column; height: 100%;
-      border: 1px solid #ddd; border-radius: 0.25rem; background: #fafafa;
-      overflow: hidden; transition: transform .2s;
-    }
-    .project-card:hover { transform: translateY(-4px); }
-    .project-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; flex-shrink: 0; }
-    .project-desc { flex: 1; padding: 1rem; display: flex; flex-direction: column; justify-content: flex-start; }
-    .project-desc h3 { margin: 0 0 0.5rem; font-size: 1.1rem; }
-    .project-desc p {
-      margin: 0; font-size: 0.9rem; line-height: 1.3;
-      display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
-    }
+    /* Footer */
+    footer{ text-align:center; padding:2rem 1rem; color:#666; background:#fff; }
 
-    /* === Impact KPIs === */
-    .kpis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:.75rem}
-    .kpi{background:#fafafa;border:1px solid #e5e5ef;border-radius:.5rem;padding:1rem}
-    .kpi h3{margin:.2rem 0 0;font-size:1.8rem}
-    .kpi p{margin:.2rem 0 0;color:#555;font-size:.95rem}
-
-    /* === Certificates Gallery (images/PDFs) === */
-    .certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
-    .cert-card{display:flex;flex-direction:column;border:1px solid #e5e5ef;border-radius:.5rem;background:#fafafa;overflow:hidden;color:inherit;text-decoration:none;transition:transform .2s}
-    .cert-card:hover{transform:translateY(-3px)}
-    .cert-card img{width:100%;height:160px;object-fit:cover;background:#fff}
-    .pdf-thumb{height:160px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #e5e5ef;font-weight:600;font-size:1.05rem;color:#0066cc;background:#fff}
-    .cert-meta{padding:.75rem 1rem}
-    .cert-meta h3{margin:0 0 .25rem;font-size:1rem}
-    .cert-meta p{margin:0;color:#555;font-size:.9rem;line-height:1.3}
-
-    /* === Career Achievements === */
-    .ach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
-    .ach-card{border:1px solid #e5e5ef;background:#fafafa;border-radius:.5rem;padding:1rem;display:flex;flex-direction:column;gap:.5rem}
-    .ach-card header{display:flex;flex-direction:column;gap:.15rem}
-    .ach-card h3{margin:0;font-size:1.05rem}
-    .ach-meta{color:#666;font-size:.9rem}
-    .badges{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.25rem}
-    .badges span{font-size:.75rem;border:1px solid #d7d7e4;border-radius:999px;padding:.15rem .5rem;background:#fff}
-    .ach-card ul{margin:.25rem 0 0 1.1rem}
-    .ach-card li{margin:.25rem 0}
-
-    /* === Next Steps / CTA === */
-    .next-card{border:1px solid #e5e5ef;border-radius:.5rem;padding:1rem;background:#fafafa}
-    .next-card ul{margin:.5rem 0 0 1.1rem}
-    .next-card li{margin:.35rem 0}
-    .cta-wrap{text-align:center;margin-top:1rem}
-    .cta{display:inline-block;border:1px solid #0066cc;border-radius:.25rem;padding:.6rem 1.2rem;background:#fff;color:#0066cc;text-decoration:none;transition:background .3s,color .3s}
-    .cta:hover{background:#0066cc;color:#fff}
-
-    /* === Responsive === */
-    @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
-      header p { font-size: 1rem; }
-      .projects-grid { grid-template-columns: 1fr !important; }
-      .cert-grid { flex-direction: column; }
+    /* Responsive */
+    @media (max-width: 600px){
+      header h1{ font-size:2rem; }
+      header p{ font-size:1rem; }
+      .projects-grid{ grid-template-columns:1fr !important; }
+      .cert-grid{ flex-direction:column; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Skip to main content -->
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Hero -->
   <header>
-    <video autoplay muted loop id="headerVideo" playsinline>
-      <source src="assets/images/background_trimmed.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline id="headerVideo" preload="none" poster="assets/images/hero-poster.jpg">
+      <source src="assets/images/background_trimmed.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <div class="header-content">
-      <img src="assets/photo.jpeg" alt="Neysha Pagán">
+      <img loading="eager" decoding="async" src="assets/photo.jpeg" alt="Portrait of Neysha Pagán" />
       <h1>Neysha Pagán</h1>
       <p>Data-driven solutions architect with 13+ years modernizing databases and building scalable ETL workflows, AI/ML insights, and analytics pipelines in cloud and on-premise environments.</p>
-      <div class="contact">
+      <div class="contact" aria-label="Contact and social links">
         <a class="button" href="assets/NeyshaPagan_Resume2025.pdf" target="_blank" rel="noopener">📄 Résumé</a>
         <div class="social">
-          <a href="#" onclick="sendEmail(event)">✉️ Email</a>
-          <a href="https://www.linkedin.com/in/neysha-pagán-a7346a102/" target="_blank" rel="noopener">🔗 LinkedIn</a>
-          <a href="https://github.com/neypagan" target="_blank" rel="noopener">🐙 GitHub</a>
+          <a href="#" onclick="sendEmail(event)" aria-label="Email Neysha">✉️ Email</a>
+          <a href="https://www.linkedin.com/in/neysha-pag%C3%A1n-a7346a102/" target="_blank" rel="noopener" aria-label="LinkedIn profile">🔗 LinkedIn</a>
+          <a href="https://github.com/neypagan" target="_blank" rel="noopener" aria-label="GitHub profile">🐙 GitHub</a>
         </div>
       </div>
     </div>
   </header>
 
-  <section class="skills">
-    <h2>Skills</h2>
-    <div class="skill-tags">
-      <span>Enterprise Data Architecture</span>
-      <span>Data Governance Frameworks</span>
-      <span>RPO &amp; RTO Planning</span>
-      <span>Azure Data Factory</span>
-      <span>Azure Databricks &amp; PySpark</span>
-      <span>SQL &amp; Delta Lake</span>
-      <span>ETL / ELT Pipelines</span>
-      <span>Microsoft Azure</span>
-      <span>AWS</span>
-      <span>GitHub Actions (CI/CD)</span>
-      <span>Power BI</span>
-      <span>Tableau</span>
-      <span>DAX &amp; SSRS</span>
-      <span>Dimensional Modeling</span>
-      <span>SQL Server (2005–2022)</span>
-      <span>Oracle (10g–12c)</span>
-      <span>PostgreSQL &amp; MariaDB</span>
-      <span>MongoDB &amp; Cassandra</span>
-      <span>Elasticsearch</span>
-      <span>Deep Learning (PyTorch, TensorFlow)</span>
-      <span>NLP (spaCy, NLTK)</span>
-      <span>Predictive Modeling (scikit-learn)</span>
-      <span>Conversational AI (Dialogflow, LangChain)</span>
-      <span>Python (pandas, matplotlib, seaborn)</span>
-      <span>R (dplyr, ggplot2)</span>
-      <span>PowerShell &amp; Bash</span>
-      <span>JSON, Hadoop &amp; Hive</span>
-      <span>Excel &amp; VBA</span>
-      <span>Backup &amp; Recovery</span>
-      <span>Performance Tuning</span>
-      <span>Security &amp; Compliance</span>
-      <span>Always On Availability Groups</span>
-      <span>Index Management</span>
-      <span>Visual Studio Code</span>
-    </div>
-  </section>
+  <!-- Sticky in-page navbar -->
+  <nav class="topnav" aria-label="Page sections">
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#impact">Results &amp; Impact</a>
+    <a href="#da-gov-certs">DA/Gov Certificates</a>
+    <a href="#achievements">Career Achievements</a>
+    <a href="#next">What’s Next</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <section class="certifications">
-    <h2>Certifications</h2>
-    <div class="cert-grid">
-      <div class="cert-group">
-        <h3>Microsoft Professional Certified</h3>
+  <main id="main">
+
+    <!-- Skills -->
+    <section id="skills" class="skills">
+      <h2>Skills</h2>
+      <div class="skill-tags">
+        <span>Enterprise Data Architecture</span>
+        <span>Data Governance Frameworks</span>
+        <span>RPO &amp; RTO Planning</span>
+        <span>Azure Data Factory</span>
+        <span>Azure Databricks &amp; PySpark</span>
+        <span>SQL &amp; Delta Lake</span>
+        <span>ETL / ELT Pipelines</span>
+        <span>Microsoft Azure</span>
+        <span>AWS</span>
+        <span>GitHub Actions (CI/CD)</span>
+        <span>Power BI</span>
+        <span>Tableau</span>
+        <span>DAX &amp; SSRS</span>
+        <span>Dimensional Modeling</span>
+        <span>SQL Server (2005–2022)</span>
+        <span>Oracle (10g–12c)</span>
+        <span>PostgreSQL &amp; MariaDB</span>
+        <span>MongoDB &amp; Cassandra</span>
+        <span>Elasticsearch</span>
+        <span>Deep Learning (PyTorch, TensorFlow)</span>
+        <span>NLP (spaCy, NLTK)</span>
+        <span>Predictive Modeling (scikit-learn)</span>
+        <span>Conversational AI (Dialogflow, LangChain)</span>
+        <span>Python (pandas, matplotlib, seaborn)</span>
+        <span>R (dplyr, ggplot2)</span>
+        <span>PowerShell &amp; Bash</span>
+        <span>JSON, Hadoop &amp; Hive</span>
+        <span>Excel &amp; VBA</span>
+        <span>Backup &amp; Recovery</span>
+        <span>Performance Tuning</span>
+        <span>Security &amp; Compliance</span>
+        <span>Always On Availability Groups</span>
+        <span>Index Management</span>
+        <span>Visual Studio Code</span>
+      </div>
+    </section>
+
+    <!-- Core Certifications (bulleted) -->
+    <section class="certifications">
+      <h2>Certifications</h2>
+      <div class="cert-grid">
+        <div class="cert-group">
+          <h3>Microsoft Professional Certified</h3>
+          <ul>
+            <li>Azure Database Administrator Associate — Aug 2022</li>
+            <li>Azure Data Fundamentals — Apr 2022</li>
+            <li>Azure Fundamentals — Nov 2020</li>
+            <li>Administering a SQL Database Infrastructure — Sep 2018</li>
+            <li>MTA: Database Fundamentals — Mar 2017</li>
+          </ul>
+        </div>
+        <div class="cert-group">
+          <h3>Profisee</h3>
+          <ul>
+            <li>Master Data Architect — Aug 2022</li>
+            <li>Master Data System Administrator — Jul 2022</li>
+          </ul>
+        </div>
+        <div class="cert-group">
+          <h3>Others</h3>
+          <ul>
+            <li>SAFe 5.0 Agilist — Oct 2022</li>
+            <li>IBM Big Data Technologies — 2019</li>
+            <li>Microsoft Professional Program: Big Data / Data Science / AI — 2017</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects">
+      <h2>Projects</h2>
+      <p style="margin:0 0 .75rem; color:#555; font-size:.95rem;">Click any card to view the full project.</p>
+      <div class="projects-grid">
+
+        <a href="assets/notebooks/WomenInSTEM.html" class="project-link" target="_blank" rel="noopener">
+          <div class="project-card">
+            <img loading="lazy" decoding="async" src="assets/images/women-stem.png?v=2" alt="Women in STEM project card" />
+            <div class="project-desc">
+              <h3>Women in STEM</h3>
+              <p><em>Scripting for Data Analysis</em><br>Analysis of gender disparities in STEM employment and pay equity across U.S. states. Click the card to view the full project.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="assets/notebooks/deep-learning.html" class="project-link" target="_blank" rel="noopener">
+          <div class="project-card">
+            <img loading="lazy" decoding="async" src="assets/images/deep-learning.png" alt="Product Image Classification (Deep Learning) card" />
+            <div class="project-desc">
+              <h3>Product Image Classification (Deep Learning)</h3>
+              <p><em>Deep Learning in Practice</em><br>CNN-based classification of Artiszën Crafts product images (~84.7% accuracy). Click the card to view the full project.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="assets/notebooks/predictive-maintenance.html" class="project-link" target="_blank" rel="noopener">
+          <div class="project-card">
+            <img loading="lazy" decoding="async" src="assets/images/predictive-maintenance.png" alt="Predictive Maintenance for Industrial Equipment card" />
+            <div class="project-desc">
+              <h3>Predictive Maintenance for Industrial Equipment</h3>
+              <p><em>Big Data Analytics</em><br>Machine-failure prediction and anomaly detection with SMOTE and Random Forest. Click the card to view the full project.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="assets/notebooks/movie-review-sentiment.html" class="project-link" target="_blank" rel="noopener">
+          <div class="project-card">
+            <img loading="lazy" decoding="async" src="assets/images/nlp.png" alt="Sentiment Classification of Movie Reviews using NLP Techniques card" />
+            <div class="project-desc">
+              <h3>Sentiment Classification of Movie Reviews using NLP Techniques</h3>
+              <p><em>Natural Language Processing</em><br>Hybrid TF-IDF + lexicon features for 5-class sentiment on Rotten Tomatoes phrases. Click the card to view the full project.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="assets/notebooks/childcare-costs.html" class="project-link" target="_blank" rel="noopener">
+          <div class="project-card">
+            <img loading="lazy" decoding="async" src="assets/images/big-data-management.png" alt="Childcare Costs vs. Family Income and Employment Data card" />
+            <div class="project-desc">
+              <h3>Childcare Costs vs. Family Income and Employment Data</h3>
+              <p><em>Advanced Big Data Management</em><br>Three-part project integrating childcare prices, labor statistics, and state incomes with Spark, Cassandra/MongoDB, and Kibana dashboards. Click the card to view the full project.</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Results & Impact -->
+    <section id="impact" class="impact">
+      <h2>Results &amp; Impact</h2>
+      <div class="kpis-grid">
+        <div class="kpi">
+          <div style="color:var(--blue);font-weight:600">Product Tagging</div>
+          <h3>−80%</h3>
+          <p>Less manual time via CNN-based catalog automation (Artiszën Crafts).</p>
+        </div>
+        <div class="kpi">
+          <div style="color:var(--blue);font-weight:600">Predictive Maintenance</div>
+          <h3>Recall 88%</h3>
+          <p>Random Forest on AI4I dataset, identifying failure cases.</p>
+        </div>
+        <div class="kpi">
+          <div style="color:var(--blue);font-weight:600">NLP Sentiment</div>
+          <h3>Accuracy 63.14%</h3>
+          <p>Hybrid TF-IDF + lexicon model on multi-class movie reviews.</p>
+        </div>
+        <div class="kpi">
+          <div style="color:var(--blue);font-weight:600">Childcare Affordability</div>
+          <h3>13.1%</h3>
+          <p>Infant center-based care share of median family income (NH, 2018).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Architecture & Governance Certificates -->
+    <section id="da-gov-certs" class="certs">
+      <h2>Data Architecture &amp; Governance Certificates</h2>
+      <div class="certs-grid">
+
+        <a class="cert-card" href="assets/images/Data-Crossroads-Certificate.png" target="_blank" rel="noopener">
+          <img loading="lazy" decoding="async" src="assets/images/Data-Crossroads-Certificate.png" alt="Data Crossroads Academy certificate — Tailoring Data Management Industry Frameworks to an Organization's Needs" />
+          <div class="cert-meta">
+            <h3>Data Crossroads Academy</h3>
+            <p>Masterclass: Tailoring Data Management Industry Frameworks to an Organization's Needs (Jun 12, 2025).</p>
+          </div>
+        </a>
+
+        <a class="cert-card" href="assets/CertificateOfCompletion_Learning%20Data%20Governance.pdf" target="_blank" rel="noopener">
+          <img loading="lazy" decoding="async" src="assets/images/DataGovernance.jpg" alt="LinkedIn Learning certificate: Learning Data Governance" />
+          <div class="cert-meta">
+            <h3>Learning Data Governance</h3>
+            <p>Completion certificate (Jun 25, 2025).</p>
+          </div>
+        </a>
+
+        <a class="cert-card" href="assets/Taller_Planeacion_de_Arquitectura_de_Datos.pdf" target="_blank" rel="noopener">
+          <img loading="lazy" decoding="async" src="assets/images/Arquitectura.jpg" alt="Taller: Planeación de Arquitectura de Datos certificate" />
+          <div class="cert-meta">
+            <h3>Planeación de Arquitectura de Datos</h3>
+            <p>Participation certificate (Jun 5, 2023).</p>
+          </div>
+        </a>
+
+        <a class="cert-card" href="assets/Gestion_de_Datos.pdf" target="_blank" rel="noopener">
+          <img loading="lazy" decoding="async" src="assets/images/Gesti%C3%B3n.jpg" alt="El ABC de la Gestión de Datos certificate" />
+          <div class="cert-meta">
+            <h3>El ABC de la Gestión de Datos</h3>
+            <p>Masterclass certificate (2025).</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Career Achievements -->
+    <section id="achievements" class="achievements">
+      <h2>Career Achievements</h2>
+      <div class="ach-grid">
+
+        <article class="ach-card">
+          <header>
+            <h3>Universal North America</h3>
+            <div class="ach-meta">Database Architect / Consultant · Nov 2024 – Present (Sarasota, FL)</div>
+            <div class="badges"><span>SQL Server</span><span>HA/DR</span><span>Governance</span></div>
+          </header>
+          <ul>
+            <li>Architected high-availability SQL Server clusters (Always On) across datacenters; delivered RPO/RTO governance and replication strategy.</li>
+            <li>Automated health checks and index monitoring with PowerShell/T-SQL; improved database performance by <strong>25%</strong>.</li>
+            <li>Produced executive guidance for compliance, security, and cloud migration feasibility.</li>
+          </ul>
+        </article>
+
+        <article class="ach-card">
+          <header>
+            <h3>Deloitte</h3>
+            <div class="ach-meta">Lead Database Engineer, Data Ingestion · Oct 2022 – May 2025</div>
+            <div class="badges"><span>Azure</span><span>Databricks</span><span>Delta Lake</span><span>ADF</span></div>
+          </header>
+          <ul>
+            <li>Unified <strong>15+</strong> sources into a Delta Lake, cutting reporting latency from <strong>24h</strong> to <strong>&lt;2h</strong>.</li>
+            <li>Implemented SCD Type 2 and data quality checks; authored governance docs aligned to enterprise standards.</li>
+            <li>Delivered SQL Server performance reviews, improving query performance by <strong>40%</strong>.</li>
+          </ul>
+        </article>
+
+        <article class="ach-card">
+          <header>
+            <h3>Neudesic</h3>
+            <div class="ach-meta">Senior Consultant I – Data &amp; AI · Mar 2022 – Oct 2022</div>
+            <div class="badges"><span>Power BI</span><span>Synapse</span><span>Purview</span></div>
+          </header>
+          <ul>
+            <li>Designed enterprise Power BI models and DAX for scenario analysis and KPI tracking.</li>
+            <li>Optimized Synapse pipelines and semantic layers; contributed to a Data Governance Accelerator.</li>
+          </ul>
+        </article>
+
+        <article class="ach-card">
+          <header>
+            <h3>GEEO</h3>
+            <div class="ach-meta">Database Architect / Consultant · Oct 2022 – Jul 2023</div>
+            <div class="badges"><span>MariaDB→SQL Server</span><span>Azure SQL</span><span>RBAC</span></div>
+          </header>
+          <ul>
+            <li>Migrated MariaDB to SQL Server/Azure SQL with normalized reporting stores and RBAC.</li>
+            <li>Delivered Power BI dashboards that improved insight into program performance.</li>
+          </ul>
+        </article>
+
+        <article class="ach-card">
+          <header>
+            <h3>Dude Solutions</h3>
+            <div class="ach-meta">Database Engineer · Aug 2021 – Mar 2022</div>
+            <div class="badges"><span>AWS</span><span>Snowflake</span><span>Performance</span></div>
+          </header>
+          <ul>
+            <li>Managed performance, availability, and scalability across hybrid transactional &amp; analytical databases.</li>
+            <li>Automated optimization tasks and supported migrations to AWS/Snowflake.</li>
+          </ul>
+        </article>
+
+        <article class="ach-card">
+          <header>
+            <h3>Deloitte Services LP</h3>
+            <div class="ach-meta">Lead DevOps Engineer / SysAdmin — DevOps Audit · Jan 2019 – Aug 2021</div>
+            <div class="badges"><span>Azure SQL</span><span>PowerShell</span><span>Runbooks</span></div>
+          </header>
+          <ul>
+            <li>Built dashboards (Power BI) for DTU/CPU/I/O/waits and top queries; automated index &amp; stats maintenance via Runbooks.</li>
+            <li>Standardized database security with AD authentication and least-privilege provisioning.</li>
+          </ul>
+        </article>
+
+        <article class="ach-card">
+          <header>
+            <h3>DXC Technology</h3>
+            <div class="ach-meta">Professional Database Engineer · Jul 2017 – Jan 2019</div>
+            <div class="badges"><span>SQL Server</span><span>Oracle</span><span>Clusters</span></div>
+          </header>
+          <ul>
+            <li>Administered <strong>700+</strong> SQL Server &amp; Oracle databases; managed AAGs, VM deployments, and failover clusters.</li>
+            <li>Executed backups/restores, replication troubleshooting, and performance tuning.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- What's Next -->
+    <section id="next" class="next-steps">
+      <h2>What’s Next</h2>
+      <div class="next-card">
+        <p>Advancing toward a <strong>Chief Data &amp; AI Officer (CDAO)</strong> track, combining enterprise data governance, responsible AI strategy, and cloud-native adoption at scale.</p>
         <ul>
-          <li>Azure Database Administrator Associate — August 2022</li>
-          <li>Azure Data Fundamentals — April 2022</li>
-          <li>Azure Fundamentals — November 2020</li>
-          <li>Administering a SQL Database Infrastructure — September 2018</li>
-          <li>MTA: Database Fundamentals — March 2017</li>
+          <li>Explore <em>CDAO / AI Leadership</em> programs with emphasis on ethics, governance, and business transformation.</li>
+          <li>Deepen MLOps (monitoring, drift, lineage) and multi-cloud Lakehouse platforms.</li>
+          <li>Scale measurable impact in automation, data quality, and time-to-insight.</li>
         </ul>
+        <div class="cta-wrap">
+          <a class="cta" href="mailto:npagan247@gmail.com?subject=Opportunities%20-%20CDAO%20Path">Discuss CDAO Path</a>
+        </div>
       </div>
-      <div class="cert-group">
-        <h3>Profisee</h3>
-        <ul>
-          <li>Master Data Architect — August 2022</li>
-          <li>Master Data System Administrator — July 2022</li>
-        </ul>
-      </div>
-      <div class="cert-group">
-        <h3>Others</h3>
-        <ul>
-          <li>SAFe 5.0 Agilist — October 2022</li>
-          <li>IBM Big Data Technologies — 2019</li>
-          <li>Microsoft Professional Program: Big Data / Data Science / AI — 2017</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects -->
-  <section class="projects">
-    <h2>Projects</h2>
-    <p style="margin:0 0 0.75rem 0; color:#555; font-size:0.95rem;">
-      Click any card to view the full project.
-    </p>
-    <div class="projects-grid">
-
-      <!-- Women in STEM -->
-      <a href="assets/notebooks/WomenInSTEM.html" class="project-link" target="_blank" rel="noopener">
-        <div class="project-card">
-          <img src="assets/images/women-stem.png?v=2" alt="Women in STEM project card">
-          <div class="project-desc">
-            <h3>Women in STEM</h3>
-            <p><em>Scripting for Data Analysis</em><br>
-            Analysis of gender disparities in STEM employment and pay equity across U.S. states. Click the card to view the full project.</p>
-          </div>
-        </div>
-      </a>
-
-      <!-- Product Image Classification (Deep Learning) -->
-      <a href="assets/notebooks/deep-learning.html" class="project-link" target="_blank" rel="noopener">
-        <div class="project-card">
-          <img src="assets/images/deep-learning.png" alt="Product Image Classification (Deep Learning) card">
-          <div class="project-desc">
-            <h3>Product Image Classification (Deep Learning)</h3>
-            <p><em>Deep Learning in Practice</em><br>
-            CNN-based classification of Artiszën Crafts product images (~84.7% accuracy). Click the card to view the full project.</p>
-          </div>
-        </div>
-      </a>
-
-      <!-- Predictive Maintenance for Industrial Equipment -->
-      <a href="assets/notebooks/predictive-maintenance.html" class="project-link" target="_blank" rel="noopener">
-        <div class="project-card">
-          <img src="assets/images/predictive-maintenance.png" alt="Predictive Maintenance for Industrial Equipment card">
-          <div class="project-desc">
-            <h3>Predictive Maintenance for Industrial Equipment</h3>
-            <p><em>Big Data Analytics</em><br>
-            Machine-failure prediction and anomaly detection with SMOTE and Random Forest. Click the card to view the full project.</p>
-          </div>
-        </div>
-      </a>
-
-      <!-- Sentiment Classification of Movie Reviews using NLP Techniques -->
-      <a href="assets/notebooks/movie-review-sentiment.html" class="project-link" target="_blank" rel="noopener">
-        <div class="project-card">
-          <img src="assets/images/nlp.png" alt="Sentiment Classification of Movie Reviews using NLP Techniques card">
-          <div class="project-desc">
-            <h3>Sentiment Classification of Movie Reviews using NLP Techniques</h3>
-            <p><em>Natural Language Processing</em><br>
-            Hybrid TF-IDF + lexicon features for 5-class sentiment on Rotten Tomatoes phrases. Click the card to view the full project.</p>
-          </div>
-        </div>
-      </a>
-
-      <!-- Childcare Costs vs. Family Income and Employment Data -->
-      <a href="assets/notebooks/childcare-costs.html" class="project-link" target="_blank" rel="noopener">
-        <div class="project-card">
-          <img src="assets/images/big-data-management.png" alt="Childcare Costs vs. Family Income and Employment Data card">
-          <div class="project-desc">
-            <h3>Childcare Costs vs. Family Income and Employment Data</h3>
-            <p><em>Advanced Big Data Management</em><br>
-             Three-part project integrating childcare prices, labor statistics, and state incomes with Spark, Cassandra/MongoDB, and Kibana dashboards. Click the card to view the full project.</p>
-          </div>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- Results & Impact -->
-  <section class="impact">
-    <h2>Results & Impact</h2>
-    <div class="kpis-grid">
-      <div class="kpi">
-        <div style="color:#0066cc;font-weight:600">Product Tagging</div>
-        <h3>−80%</h3>
-        <p>Less manual time via CNN-based catalog automation (Artiszën Crafts).</p>
-      </div>
-      <div class="kpi">
-        <div style="color:#0066cc;font-weight:600">Predictive Maintenance</div>
-        <h3>Recall 88%</h3>
-        <p>Random Forest on AI4I dataset, identifying failure cases.</p>
-      </div>
-      <div class="kpi">
-        <div style="color:#0066cc;font-weight:600">NLP Sentiment</div>
-        <h3>Accuracy 63.14%</h3>
-        <p>Hybrid TF-IDF + lexicon model on multi-class movie reviews.</p>
-      </div>
-      <div class="kpi">
-        <div style="color:#0066cc;font-weight:600">Childcare Affordability</div>
-        <h3>13.1%</h3>
-        <p>Infant center-based care share of median family income (NH, 2018).</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Data Architecture & Governance Certificates (image thumbs from assets/images) -->
-  <section class="certs">
-    <h2>Data Architecture &amp; Governance Certificates</h2>
-    <div class="certs-grid">
-
-      <!-- Data Crossroads Academy (PNG image) -->
-      <a class="cert-card" href="assets/images/Data-Crossroads-Certificate.png" target="_blank" rel="noopener">
-        <img src="assets/images/Data-Crossroads-Certificate.png"
-             alt="Data Crossroads Academy — Tailoring Data Management Industry Frameworks to an Organization's Needs (certificate)">
-        <div class="cert-meta">
-          <h3>Data Crossroads Academy</h3>
-          <p>Masterclass: Tailoring Data Management Industry Frameworks to an Organization's Needs (Jun 12, 2025).</p>
-        </div>
-      </a>
-
-      <!-- LinkedIn Learning: Learning Data Governance (thumb image -> PDF) -->
-      <a class="cert-card" href="assets/CertificateOfCompletion_Learning%20Data%20Governance.pdf" target="_blank" rel="noopener">
-        <img src="assets/images/DataGovernance.jpg"
-             alt="Learning Data Governance — LinkedIn Learning (certificate)">
-        <div class="cert-meta">
-          <h3>Learning Data Governance</h3>
-          <p>Completion certificate (Jun 25, 2025).</p>
-        </div>
-      </a>
-
-      <!-- Taller: Planeación de Arquitectura de Datos (thumb image -> PDF) -->
-      <a class="cert-card" href="assets/Taller_Planeacion_de_Arquitectura_de_Datos.pdf" target="_blank" rel="noopener">
-        <img src="assets/images/Arquitectura.jpg"
-             alt="Taller: Planeación de Arquitectura de Datos (certificate)">
-        <div class="cert-meta">
-          <h3>Taller: Planeación de Arquitectura de Datos</h3>
-          <p>Participation certificate (Jun 5, 2023).</p>
-        </div>
-      </a>
-
-      <!-- El ABC de la Gestión de Datos (thumb image -> PDF) -->
-      <a class="cert-card" href="assets/Gestion_de_Datos.pdf" target="_blank" rel="noopener">
-        <img src="assets/images/Gestion.jpg"
-             alt="El ABC de la Gestión de Datos (certificate)">
-        <div class="cert-meta">
-          <h3>El ABC de la Gestión de Datos</h3>
-          <p>Masterclass certificate (2025).</p>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-
-  <!-- What’s Next -->
-  <section class="next-steps">
-    <h2>What’s Next</h2>
-    <div class="next-card">
-      <p>Advancing toward a <strong>Chief Data &amp; AI Officer (CDAO)</strong> track, combining enterprise data governance, responsible AI strategy, and cloud-native adoption at scale.</p>
-      <ul>
-        <li>Explore <em>CDAO / AI Leadership</em> programs with emphasis on ethics, governance, and business transformation.</li>
-        <li>Deepen MLOps (monitoring, drift, lineage) and multi-cloud Lakehouse platforms.</li>
-        <li>Scale measurable impact in automation, data quality, and time-to-insight.</li>
-      </ul>
+    <!-- Contact -->
+    <section id="contact" class="contact-cta">
+      <h2>Get in Touch</h2>
+      <p style="margin:.5rem 0 1rem;color:#555">Open to collaborations, advisory work, and leadership roles in data &amp; AI.</p>
       <div class="cta-wrap">
-        <a class="cta" href="mailto:npagan247@gmail.com?subject=Opportunities%20-%20CDAO%20Path">Discuss CDAO Path</a>
+        <a class="cta" href="https://www.linkedin.com/in/neysha-pag%C3%A1n-a7346a102/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        &nbsp;&nbsp;
+        <a class="cta" href="assets/NeyshaPagan_Resume2025.pdf" target="_blank" rel="noopener">Download Résumé</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Get in touch -->
-  <section class="contact-cta">
-    <h2>Get in Touch</h2>
-    <p style="margin:.5rem 0 1rem;color:#555">Open to collaborations, advisory work, and leadership roles in data &amp; AI.</p>
-    <div class="cta-wrap">
-      <a class="cta" href="https://www.linkedin.com/in/neysha-pagán-a7346a102/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-      &nbsp;&nbsp;
-      <a class="cta" href="assets/NeyshaPagan_Resume2025.pdf" target="_blank" rel="noopener">Download Résumé</a>
-    </div>
-  </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Neysha Pagán · <a href="mailto:npagan247@gmail.com">npagan247@gmail.com</a>
+  </footer>
 
   <script>
-    function sendEmail(event) {
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // email helper
+    function sendEmail(event){
       event.preventDefault();
       const email = 'npagan247@gmail.com';
-      navigator.clipboard.writeText(email).then(() => alert('Email copied'));
+      navigator.clipboard?.writeText?.(email).then(()=>{}).catch(()=>{});
       window.location.href = 'mailto:' + email + '?subject=Hello%20Neysha';
     }
   </script>
