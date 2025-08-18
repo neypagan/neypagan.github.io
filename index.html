@@ -75,8 +75,8 @@
 
     /* === Sections === */
     section { padding: 2rem 1rem; }
-    .skills, .projects { background: #f4f4f8; }
-    .certifications, .certs, .achievements { background: #fff; }
+    .skills { background: #f4f4f8; }
+    .certifications, .projects, .impact, .certs, .achievements, .next-steps, .contact-cta { background: #fff; }
     h2 {
       border-bottom: 2px solid #ccc;
       padding-bottom: 0.5rem;
@@ -96,30 +96,16 @@
       font-size: 0.9rem;
     }
 
-    /* === Certifications Grid === */
+    /* === Certifications Grid (bulleted list) === */
     .cert-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
     }
-    .cert-group {
-      flex: 1;
-      min-width: 200px;
-    }
-    .cert-group h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1rem;
-      color: #333;
-    }
-    .cert-group ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .cert-group li {
-      margin: 0.4rem 0;
-      font-size: 0.9rem;
-    }
+    .cert-group { flex: 1; min-width: 200px; }
+    .cert-group h3 { margin: 0 0 0.5rem; font-size: 1rem; color: #333; }
+    .cert-group ul { list-style: none; padding: 0; margin: 0; }
+    .cert-group li { margin: 0.4rem 0; font-size: 0.9rem; }
 
     /* === Projects Grid === */
     .projects-grid {
@@ -129,66 +115,28 @@
       margin-top: 1rem;
       align-items: stretch;
     }
-    .project-link {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      color: inherit;
-    }
+    .project-link { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
     .project-card {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      border: 1px solid #ddd;
-      border-radius: 0.25rem;
-      background: #fafafa;
-      overflow: hidden;
-      transition: transform .2s;
+      display: flex; flex-direction: column; height: 100%;
+      border: 1px solid #ddd; border-radius: 0.25rem; background: #fafafa;
+      overflow: hidden; transition: transform .2s;
     }
     .project-card:hover { transform: translateY(-4px); }
-    .project-card img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-    .project-desc {
-      flex: 1;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-    .project-desc h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1.1rem;
-    }
+    .project-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; flex-shrink: 0; }
+    .project-desc { flex: 1; padding: 1rem; display: flex; flex-direction: column; justify-content: flex-start; }
+    .project-desc h3 { margin: 0 0 0.5rem; font-size: 1.1rem; }
     .project-desc p {
-      margin: 0;
-      font-size: 0.9rem;
-      line-height: 1.3;
-      display: -webkit-box;
-      -webkit-line-clamp: 4; /* subtitle + description + instruction */
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      margin: 0; font-size: 0.9rem; line-height: 1.3;
+      display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
     }
 
     /* === Impact KPIs === */
     .kpis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:.75rem}
-    .kpi{background:#fff;border:1px solid #e5e5ef;border-radius:.5rem;padding:1rem}
+    .kpi{background:#fafafa;border:1px solid #e5e5ef;border-radius:.5rem;padding:1rem}
     .kpi h3{margin:.2rem 0 0;font-size:1.8rem}
     .kpi p{margin:.2rem 0 0;color:#555;font-size:.95rem}
 
-    /* === Next Steps / CTA === */
-    .next-steps{background:#fff}
-    .next-card{border:1px solid #e5e5ef;border-radius:.5rem;padding:1rem;background:#fafafa}
-    .next-card ul{margin:.5rem 0 0 1.1rem}
-    .next-card li{margin:.35rem 0}
-    .cta-wrap{text-align:center;margin-top:1rem}
-    .cta{display:inline-block;border:1px solid #0066cc;border-radius:.25rem;padding:.6rem 1.2rem;background:#fff;color:#0066cc;text-decoration:none;transition:background .3s,color .3s}
-    .cta:hover{background:#0066cc;color:#fff}
-
-    /* === Data Architecture & Governance Certificates === */
+    /* === Certificates Gallery (images/PDFs) === */
     .certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
     .cert-card{display:flex;flex-direction:column;border:1px solid #e5e5ef;border-radius:.5rem;background:#fafafa;overflow:hidden;color:inherit;text-decoration:none;transition:transform .2s}
     .cert-card:hover{transform:translateY(-3px)}
@@ -208,6 +156,14 @@
     .badges span{font-size:.75rem;border:1px solid #d7d7e4;border-radius:999px;padding:.15rem .5rem;background:#fff}
     .ach-card ul{margin:.25rem 0 0 1.1rem}
     .ach-card li{margin:.25rem 0}
+
+    /* === Next Steps / CTA === */
+    .next-card{border:1px solid #e5e5ef;border-radius:.5rem;padding:1rem;background:#fafafa}
+    .next-card ul{margin:.5rem 0 0 1.1rem}
+    .next-card li{margin:.35rem 0}
+    .cta-wrap{text-align:center;margin-top:1rem}
+    .cta{display:inline-block;border:1px solid #0066cc;border-radius:.25rem;padding:.6rem 1.2rem;background:#fff;color:#0066cc;text-decoration:none;transition:background .3s,color .3s}
+    .cta:hover{background:#0066cc;color:#fff}
 
     /* === Responsive === */
     @media (max-width: 600px) {
@@ -311,42 +267,7 @@
     </div>
   </section>
 
-  <!-- Data Architecture & Governance Certificates (image + PDFs) -->
-  <section class="certs">
-    <h2>Data Architecture &amp; Governance Certificates</h2>
-    <div class="certs-grid">
-
-      <!-- Image certificate -->
-      <a class="cert-card" href="assets/certificates/data-crossroads-masterclass.png" target="_blank" rel="noopener">
-        <img src="assets/certificates/data-crossroads-masterclass.png"
-             alt="Data Crossroads Academy — Tailoring Data Management Industry Frameworks to an Organization's Needs (certificate)">
-        <div class="cert-meta">
-          <h3>Data Crossroads Academy</h3>
-          <p>Masterclass: Tailoring Data Management Industry Frameworks to an Organization's Needs (Jun 12, 2025).</p>
-        </div>
-      </a>
-
-      <!-- PDF certificate 1 -->
-      <a class="cert-card" href="assets/certificates/Learning_Data_Governance.pdf" target="_blank" rel="noopener">
-        <div class="pdf-thumb">PDF certificate</div>
-        <div class="cert-meta">
-          <h3>Learning Data Governance</h3>
-          <p>Completion certificate (Jun 25, 2025).</p>
-        </div>
-      </a>
-
-      <!-- PDF certificate 2 -->
-      <a class="cert-card" href="assets/certificates/Taller_Planeacion_de_Arquitectura_de_Datos.pdf" target="_blank" rel="noopener">
-        <div class="pdf-thumb">PDF certificate</div>
-        <div class="cert-meta">
-          <h3>Taller: Planeación de Arquitectura de Datos</h3>
-          <p>Participation certificate (Jun 5, 2023).</p>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
+  <!-- Projects -->
   <section class="projects">
     <h2>Projects</h2>
     <p style="margin:0 0 0.75rem 0; color:#555; font-size:0.95rem;">
@@ -417,62 +338,6 @@
     </div>
   </section>
 
-  <!-- Career Achievements -->
-  <section class="achievements">
-    <h2>Career Achievements</h2>
-    <div class="ach-grid">
-
-      <!-- Deloitte -->
-      <article class="ach-card">
-        <header>
-          <h3>Deloitte</h3>
-          <div class="ach-meta">Senior Data Architect · 2022–Present</div>
-          <div class="badges">
-            <span>Azure</span><span>Databricks</span><span>SQL</span><span>Governance</span>
-          </div>
-        </header>
-        <ul>
-          <li>Led enterprise data initiatives for Fortune 500 clients, improving audit readiness and data trust across multiple domains.</li>
-          <li>Defined governance standards (catalog, lineage, access policies) and reduced time-to-insight through reusable ELT patterns.</li>
-          <li>Partnered with security and product teams to align data delivery with compliance and privacy requirements.</li>
-        </ul>
-      </article>
-
-      <!-- Previous Role #1 -->
-      <article class="ach-card">
-        <header>
-          <h3>Previous Role</h3>
-          <div class="ach-meta">Data Architect · 2019–2022</div>
-          <div class="badges">
-            <span>SQL Server</span><span>ADF/SSIS</span><span>Power BI</span>
-          </div>
-        </header>
-        <ul>
-          <li>Migrated legacy analytics workloads, stabilizing refresh windows and lowering maintenance overhead.</li>
-          <li>Delivered executive dashboards for finance and operations, enabling KPI-driven decisions.</li>
-          <li>Standardized dimensional models and tuning (indexes/partitions) for large datasets.</li>
-        </ul>
-      </article>
-
-      <!-- Previous Role #2 -->
-      <article class="ach-card">
-        <header>
-          <h3>Previous Role</h3>
-          <div class="ach-meta">Data Engineer · 2016–2019</div>
-          <div class="badges">
-            <span>Python</span><span>PySpark</span><span>CI/CD</span>
-          </div>
-        </header>
-        <ul>
-          <li>Built reliable ingestion pipelines with monitoring &amp; alerting to meet strict SLAs.</li>
-          <li>Automated quality checks (schema &amp; null rules) to reduce defects prior to consumption.</li>
-          <li>Collaborated with cross-functional teams to deliver secure, well-documented data services.</li>
-        </ul>
-      </article>
-
-    </div>
-  </section>
-
   <!-- Results & Impact -->
   <section class="impact">
     <h2>Results & Impact</h2>
@@ -497,6 +362,148 @@
         <h3>13.1%</h3>
         <p>Infant center-based care share of median family income (NH, 2018).</p>
       </div>
+    </div>
+  </section>
+
+  <!-- Data Architecture & Governance Certificates (image thumbs from assets/images) -->
+  <section class="certs">
+    <h2>Data Architecture &amp; Governance Certificates</h2>
+    <div class="certs-grid">
+
+      <!-- Data Crossroads Academy (PNG image) -->
+      <a class="cert-card" href="assets/images/Data-Crossroads-Certificate.png" target="_blank" rel="noopener">
+        <img src="assets/images/Data-Crossroads-Certificate.png"
+             alt="Data Crossroads Academy — Tailoring Data Management Industry Frameworks to an Organization's Needs (certificate)">
+        <div class="cert-meta">
+          <h3>Data Crossroads Academy</h3>
+          <p>Masterclass: Tailoring Data Management Industry Frameworks to an Organization's Needs (Jun 12, 2025).</p>
+        </div>
+      </a>
+
+      <!-- LinkedIn Learning: Learning Data Governance (thumb image -> PDF) -->
+      <a class="cert-card" href="assets/CertificateOfCompletion_Learning%20Data%20Governance.pdf" target="_blank" rel="noopener">
+        <img src="assets/images/DataGovernance.jpg"
+             alt="Learning Data Governance — LinkedIn Learning (certificate)">
+        <div class="cert-meta">
+          <h3>Learning Data Governance</h3>
+          <p>Completion certificate (Jun 25, 2025).</p>
+        </div>
+      </a>
+
+      <!-- Taller: Planeación de Arquitectura de Datos (thumb image -> PDF) -->
+      <a class="cert-card" href="assets/Taller_Planeacion_de_Arquitectura_de_Datos.pdf" target="_blank" rel="noopener">
+        <img src="assets/images/Arquitectura.jpg"
+             alt="Taller: Planeación de Arquitectura de Datos (certificate)">
+        <div class="cert-meta">
+          <h3>Taller: Planeación de Arquitectura de Datos</h3>
+          <p>Participation certificate (Jun 5, 2023).</p>
+        </div>
+      </a>
+
+      <!-- El ABC de la Gestión de Datos (thumb image -> PDF) -->
+      <a class="cert-card" href="assets/Gestion_de_Datos.pdf" target="_blank" rel="noopener">
+        <img src="assets/images/Gestion.jpg"
+             alt="El ABC de la Gestión de Datos (certificate)">
+        <div class="cert-meta">
+          <h3>El ABC de la Gestión de Datos</h3>
+          <p>Masterclass certificate (2025).</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Career Achievements (from résumé) -->
+  <section class="achievements">
+    <h2>Career Achievements</h2>
+    <div class="ach-grid">
+
+      <article class="ach-card">
+        <header>
+          <h3>Universal North America</h3>
+          <div class="ach-meta">Database Architect / Consultant · Nov 2024 – Present (Sarasota, FL)</div>
+          <div class="badges"><span>SQL Server</span><span>HA/DR</span><span>Governance</span></div>
+        </header>
+        <ul>
+          <li>Architected high-availability SQL Server clusters (Always On) across datacenters; delivered RPO/RTO governance and replication strategy.</li>
+          <li>Automated health checks and index monitoring with PowerShell/T-SQL; improved database performance by <strong>25%</strong>.</li>
+          <li>Produced executive guidance for compliance, security, and cloud migration feasibility.</li>
+        </ul>
+      </article>
+
+      <article class="ach-card">
+        <header>
+          <h3>Deloitte</h3>
+          <div class="ach-meta">Lead Database Engineer, Data Ingestion · Oct 2022 – May 2025</div>
+          <div class="badges"><span>Azure</span><span>Databricks</span><span>Delta Lake</span><span>ADF</span></div>
+        </header>
+        <ul>
+          <li>Unified <strong>15+</strong> sources into a Delta Lake, cutting reporting latency from <strong>24h</strong> to <strong>&lt;2h</strong>.</li>
+          <li>Implemented SCD Type 2 and data quality checks; authored governance docs aligned to enterprise standards.</li>
+          <li>Delivered SQL Server performance reviews, improving query performance by <strong>40%</strong>.</li>
+        </ul>
+      </article>
+
+      <article class="ach-card">
+        <header>
+          <h3>Neudesic</h3>
+          <div class="ach-meta">Senior Consultant I – Data &amp; AI · Mar 2022 – Oct 2022</div>
+          <div class="badges"><span>Power BI</span><span>Synapse</span><span>Purview</span></div>
+        </header>
+        <ul>
+          <li>Designed enterprise Power BI models and DAX for scenario analysis and KPI tracking.</li>
+          <li>Optimized Synapse pipelines and semantic layers; contributed to a Data Governance Accelerator.</li>
+        </ul>
+      </article>
+
+      <article class="ach-card">
+        <header>
+          <h3>GEEO</h3>
+          <div class="ach-meta">Database Architect / Consultant · Oct 2022 – Jul 2023</div>
+          <div class="badges"><span>MariaDB→SQL Server</span><span>Azure SQL</span><span>RBAC</span></div>
+        </header>
+        <ul>
+          <li>Migrated MariaDB to SQL Server/Azure SQL with normalized reporting stores and RBAC.</li>
+          <li>Delivered Power BI dashboards that improved insight into program performance.</li>
+        </ul>
+      </article>
+
+      <article class="ach-card">
+        <header>
+          <h3>Dude Solutions</h3>
+          <div class="ach-meta">Database Engineer · Aug 2021 – Mar 2022</div>
+          <div class="badges"><span>AWS</span><span>Snowflake</span><span>Performance</span></div>
+        </header>
+        <ul>
+          <li>Managed performance, availability, and scalability across hybrid transactional &amp; analytical databases.</li>
+          <li>Automated optimization tasks and supported migrations to AWS/Snowflake.</li>
+        </ul>
+      </article>
+
+      <article class="ach-card">
+        <header>
+          <h3>Deloitte Services LP</h3>
+          <div class="ach-meta">Lead DevOps Engineer / SysAdmin — DevOps Audit · Jan 2019 – Aug 2021</div>
+          <div class="badges"><span>Azure SQL</span><span>PowerShell</span><span>Runbooks</span></div>
+        </header>
+        <ul>
+          <li>Built dashboards (Power BI) for DTU/CPU/I/O/waits and top queries; automated index &amp; stats maintenance via Runbooks.</li>
+          <li>Standardized database security with AD authentication and least-privilege provisioning.</li>
+        </ul>
+      </article>
+
+      <article class="ach-card">
+        <header>
+          <h3>DXC Technology</h3>
+          <div class="ach-meta">Professional Database Engineer · Jul 2017 – Jan 2019</div>
+          <div class="badges"><span>SQL Server</span><span>Oracle</span><span>Clusters</span></div>
+        </header>
+        <ul>
+          <li>Administered <strong>700+</strong> SQL Server &amp; Oracle databases; managed AAGs, VM deployments, and failover clusters.</li>
+          <li>Executed backups/restores, replication troubleshooting, and performance tuning.</li>
+        </ul>
+      </article>
+
     </div>
   </section>
 
